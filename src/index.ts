@@ -1,5 +1,6 @@
-import subArraysSum from './Arrays/01/index';
+import countTriplets from './Arrays/02/index';
 
-const value = subArraysSum([1,2,3,7,5], 12);
+const value = countTriplets([1, 5, 3, 2]);
 
+// console.clear();
 console.log('main result', value);

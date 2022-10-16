@@ -1,6 +1,29 @@
-import countTriplets from './Arrays/02/index';
+import BST from "./Algorithms/binarySearchTree";
+import Stack from "./DataStructure/Stack";
+import Queue from "./DataStructure/Queue";
 
-const value = countTriplets([1, 5, 3, 2]);
+const data = new BST();
 
-// console.clear();
-console.log('main result', value);
+data.push(5);
+data.push(7);
+data.push(6);
+data.push(4);
+data.push(3);
+data.push(1);
+data.push(2);
+
+data.remove(4);
+data.remove(7);
+
+console.log('data structure ', data.traverse());
+
+const stacks = new Stack();
+
+stacks.push(1);
+stacks.pop();
+
+console.log('stacks ', stacks);
+
+const queue = new Queue();
+
+console.log('queue', queue);

@@ -1,4 +1,4 @@
-import BST from "./Algorithms/binarySearchTree";
+import BST from "./DataStructure/binarySearchTree";
 import Stack from "./DataStructure/Stack";
 import Queue from "./DataStructure/Queue";
 

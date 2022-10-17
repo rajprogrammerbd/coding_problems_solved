@@ -83,32 +83,44 @@ export default class BST {
         }
     }
 
-    traverse(): number[] {
-        if (this.root === null) {
-            return [];
-        }
+    breatheFirstSearch() {
+        if (this.root === null) return [];
 
-        const data: number[] = [];
+        const result = [];
         const queue = new Queue();
+        let last;
 
         queue.push(this.root);
-        let last: any;
 
         while (queue.allData().length) {
             last = queue.pop();
 
-            if (last.left !== null) {
+            result.push(last.value);
+
+            if ( last.left !== null ) {
                 queue.push(last.left);
             }
 
             if (last.right !== null) {
                 queue.push(last.right);
             }
-
-            data.push(last.value);
-
         }
 
-        return mergeSort(data);
+        return result;
+    }
+
+    depthFirstSearchPreOrder(): number[] {
+        if (this.root === null) return [];
+        const data: number[] = [];
+
+        function traverse(ele: { value: number; left: any; right: any }) {
+            data.push(ele?.value);
+
+            if (ele?.left !== null) traverse(ele?.left);
+            if (ele?.right !== null) traverse(ele?.right); 
+        }
+
+        traverse(this.root);
+        return data;
     }
 }

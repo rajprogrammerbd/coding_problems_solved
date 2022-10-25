@@ -82,6 +82,8 @@ describe('Binary Search Tree', () => {
 
         expect(bst.breatheFirstSearch()).toEqual([]);
         expect(bst.depthFirstSearchPreOrder()).toEqual([]);
+        expect(bst.depthFirstSearchInOrder()).toEqual([]);
+        expect(bst.depthFirstSearchPostOrder()).toEqual([]);
     });
 
     it('should return the [123456789]', () => {
@@ -100,5 +102,7 @@ describe('Binary Search Tree', () => {
 
         expect(bst.breatheFirstSearch()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
         expect(bst.depthFirstSearchPreOrder()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(bst.depthFirstSearchPostOrder()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        expect(bst.depthFirstSearchInOrder()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
     });
 });

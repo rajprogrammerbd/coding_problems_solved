@@ -123,4 +123,41 @@ export default class BST {
         traverse(this.root);
         return data;
     }
+
+    depthFirstSearchInOrder(): number[] {
+        if (this.root === null) {
+            return [];
+        }
+
+        const data: number[] = [];
+
+        function traverse(node: { value: number; left: any; right: any }) {
+            if (node?.left !== null) traverse(node?.left);
+            data.push(node?.value);
+            if (node?.right) traverse(node?.right);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
+
+    depthFirstSearchPostOrder(): number[] {
+        if (this.root === null) {
+            return [];
+        }
+
+        const data: number[] = [];
+
+        function traverse(node: { value: number; left: any; right: any }) {
+            if (node?.left) traverse(node?.left);
+            if (node?.right) traverse(node?.right);
+
+            data.push(node?.value);
+        }
+
+        traverse(this.root);
+
+        return data;
+    }
 }

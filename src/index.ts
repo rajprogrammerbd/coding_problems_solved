@@ -27,4 +27,6 @@ data.push(1);
 data.push(2);
 
 console.log('breathe first search ', data.breatheFirstSearch());
-console.log('depth first search ', data.depthFirstSearchPreOrder());
+console.log('depth first search pre-order', data.depthFirstSearchPreOrder());
+console.log('depth first search in-order', data.depthFirstSearchInOrder());
+console.log('depth first search post-order', data.depthFirstSearchPostOrder());

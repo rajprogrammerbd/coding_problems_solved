@@ -6,13 +6,12 @@ class MaxBinaryHeap {
         this.values = [];
     }
 
-    insert(element: number) {
-        this.values.push(element);
-
+    insert(val: number) {
+        this.values.push(val);
         this.bubbleUp();
     }
 
-    protected bubbleUp() {
+    bubbleUp() {
         let childIndex = this.values.length - 1;
         let childElement = this.values[childIndex];
 

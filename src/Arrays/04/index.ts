@@ -1,4 +1,4 @@
-
+/*
 function mostWaterContainer(nums: number[]): number {
     let max: number = 0, addition: number;
 
@@ -11,6 +11,25 @@ function mostWaterContainer(nums: number[]): number {
     }
 
     return max;
+}
+*/
+
+function mostWaterContainer(nums: number[]) {
+    let total = 0, leftIndex = 0, rightIndex = nums.length - 1;
+
+    while (leftIndex < rightIndex) {
+        let element = Math.min(nums[leftIndex], nums[rightIndex]);
+
+        total = Math.max(total, (element * nums.slice(leftIndex, rightIndex).length));
+
+        if(nums[leftIndex] <= nums[rightIndex]) {
+            leftIndex++;
+          } else {
+            rightIndex--;
+          }
+    }
+
+    return total;
 }
 
 export default mostWaterContainer;

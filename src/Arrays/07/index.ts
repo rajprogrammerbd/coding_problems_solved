@@ -1,4 +1,5 @@
 // Brute Force Solution
+/*
 function rainWater(arr: number[]): number {
     let total = 0;
     let maxLeft = 0;
@@ -23,6 +24,35 @@ function rainWater(arr: number[]): number {
 
         if ( check >= 0 ) {
             total += check;
+        }
+    }
+
+    return total;
+}
+*/
+
+
+// Optimized version of the solution.
+const rainWater = (heights: number[]): number => {
+    let total = 0, firstPointer = 0, lastPointer = heights.length - 1, firstMax = 0, lastMax = 0;
+
+    while (firstPointer < lastPointer) {
+        if (heights[firstPointer] <= heights[lastPointer]) {
+            if (heights[firstPointer] >= firstMax) {
+                firstMax = heights[firstPointer];
+            } else {
+                total += firstMax - heights[firstPointer];
+            }
+
+            firstPointer++;
+        } else {
+            if (heights[lastPointer] >= lastMax) {
+                lastMax = heights[lastPointer];
+            } else {
+                total += lastMax - heights[lastPointer];
+            }
+
+            lastPointer--;
         }
     }
 

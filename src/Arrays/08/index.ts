@@ -38,5 +38,4 @@ function jumpingOnClouds(arr: number[]): number {
 
 const value = jumpingOnClouds([0, 0, 0, 1, 0, 0]);
 
-console.log('main value', value);
 export default jumpingOnClouds;

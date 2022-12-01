@@ -1,0 +1,3 @@
+***Problem:-***
+
+There is a string, , of lowercase English letters that is repeated infinitely many times. Given an integer, , find and print the number of letter a's in the first  letters of the infinite string.

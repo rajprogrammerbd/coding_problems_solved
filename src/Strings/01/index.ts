@@ -1,3 +1,4 @@
+/*
 class Node {
     public value: string;
     public prev: Node | null;
@@ -82,7 +83,6 @@ class LinkedList {
 
 
 // Brute Force Solution.
-/*
 function typedOutString(S: string, T: string): boolean { // O(n + n)
     const splitedS = S.split('');
     const splitedT = T.split('');
@@ -118,6 +118,7 @@ function typedOutString(S: string, T: string): boolean { // O(n + n)
 }
 */
 
+// Add optimized solution
 function typedOutString(S: string, T: string): boolean {
     let p1 = S.length - 1, p2 = T.length - 1;
     

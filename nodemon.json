@@ -2,5 +2,5 @@
     "watch": ["src"],
     "ext": ".ts,.js",
     "ignore": [],
-    "exec": "ts-node ./src/Strings/01/index.ts"
+    "exec": "ts-node ./src/Arrays/11/index.ts"
 }

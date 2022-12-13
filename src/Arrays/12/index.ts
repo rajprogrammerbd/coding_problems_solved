@@ -24,16 +24,23 @@ function findMinSubArray(arr: number[], sum: number): number {
             if (ans === 0) {
                 ans = index;
             } else {
-                ans = Math.min(total, index);
+                ans = Math.min(ans, index);
             }
 
             let slice = arr.slice(0, (i + 1));
             total -= arr[slice.length - index];
             index--;
+
+            if (total >= sum) {
+                ans = Math.min(total, index);
+
+                total -= arr[slice.length - index];
+                index--;
+            }
         }
     }
 
-    return ans - 1;
+    return ans;
 }
 
 export default findMinSubArray;

@@ -34,9 +34,23 @@
 * **rm (file name)** used to remove one or more file.
 * **rm -r (directory name)** used to remove the directory with included files.
 * **cat (file name)** this command is used for multiple purpose, if this is a short text file then it used to view the file, this command also uses for concate files in one goal.
+* **cat (file 1) > (file 2)** used this command to copy all the data from file 1 and paste it to file 2. This command will override all the text and add the new line.
+* **cat (file 1) >> (file 2)** used to copy and append the copied text with the file 2.
 * **less (file name)** used to read long files.
 * **head -n (line number) (file name)** used to view the first specific lines of a certain file.
 * **tail -n (line number) (file name)** used to view the last specific lines of a certain file.
+* **grep (text to search)** used to search a string (case sensitive).
+* **grep -i (text to search)** used to search a string (case in-sensitive).
+* **grep -i -r (text to search) (folder to search in)** used to search a string within a directory.
+* **find** used to get all the files and directories recursivly from the current directory (including hidden directory).
+* **find (directory to look)** used to look all the directories and files available to a specific directory.
+* **find -type d** used to find only the directories.
+* **find -type f** used to find only the files.
+* **printenv** used to print all the environment variable.
+* **printenv (environment variable name)** used to get the value of a sepecific environment variable.
+* **echo $(env variable name)** it's also an another way to get the value of a specific environment variable.
+* **export (variable name)=(variable value)** used to set an environment variable to the current session.
+* **kill (process id)** used to kill a process that is running.
 
 > **Docker basic commands**
 
@@ -49,6 +63,8 @@
 * **docker ps -a** is to get all the containers.
 * **docker container prune** to remove all the containers.
 * **docker run -it (image name)** to run a container in interactive mode. This will gives us shall (shall is a program that passes command to the operating system).
+* **docker start -i (container id)** used to start the stop container in interactive mode.
+* **exit** used to exit from the interactive terminal mode.
 
 > **Docker development workflow**
 

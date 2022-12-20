@@ -18,7 +18,7 @@
 * Readability is improved
 * Easy to integrate
 * Easy to write UI test cases
-* What is JSX?
+* **What is JSX?**
 * JSX stands for JavaScript XML
 * Utilizes the expressiveness of JavaScript with a HTML-like template syntax.
 * Makes HTML easy to understand
@@ -44,7 +44,7 @@
 * Updates the JSX if element updates
 * DOM manipulation is very easy
 * No memory wastage
-* Why can’t browser read JSX?
+* **Why can’t browser read JSX?**
 * JSX is not a regular JavaScript object
 * Browser can read JavaScript objects only
 * JSX file is converted to JS object by JSX transformers like babel, before reaching browser.
@@ -98,7 +98,7 @@
 * Pure or immutable
 * Always passed down from parent to child component
 * Used to render dynamic data
-* What is a State in React and how it is used?
+* **What is a State in React and how it is used?**
 * Heart of react component
 * Must be kept as simple as possible
 * Determine components rendering and behavior
@@ -106,7 +106,7 @@
 * **What are React Hooks?**
 * Functions that lets us hook into React state and lifecycle features from a functional component.
 * React hooks can’t be used in class components
-* Do you know any of the techniques to optimize React app performance?
+* **Do you know any of the techniques to optimize React app performance?**
 * Using useMemo()
 * It’s a React hook that is used for caching CPU-Expensive functions
 * useMemo() hook can be used to cache such functions
@@ -122,7 +122,7 @@
 * The react context API is a way for a React app to effectively produce global variables that can be passed around.
 * This is the alternative to “Props Drilling”
 * A new type of context can be created using React.createContext API
-* What do you mean by Prop Drilling?
+* **What do you mean by Prop Drilling?**
 * It can be defined as a process in React app where props are passed from one part of a tree to another by going through other parts that do not need the data, but only help in passing it through the tree.
 * It is also known as Prop Threading
 * Differentiate between stateful and stateless components
@@ -137,7 +137,7 @@
 * Do not have the authority to change state
 * Contains no knowledge of past, current and possible future state changes
 * They receive the props from stateFull components to treat them as callback functions.
-* What do you know about controlled and uncontrolled components?
+* **What do you know about controlled and uncontrolled components?**
 * ***Controlled components***
 * Don’t maintain their own state
 * Data is controlled by the parent component
@@ -146,13 +146,13 @@
 * Maintain their own state
 * Data is controlled by the DOM
 * Refs are used to get their current value
-* What are higher order components?
+* **What are higher order components?**
 * Custom components which wraps another component
 * They accept dynamically provided child components
 * Do not modify the input component
 * Do not copy any behavior from the input component
 * Are “Pure” functions.
-* What can you do with HOC?
+* **What can you do with HOC?**
 * Code reuse, logic and bootstrap abstraction
 * Render high jacking
 * State abstraction and manipulation
@@ -170,9 +170,9 @@
 * Redux one of the hottest libraries for front end development
 * Redux is a predictable state container for JavaScript apps
 * Mostly used for application state management.
-* Application developed with Redux are easy to test
+* Application developed with Redux are easy to test.
 * Helps to write applications that behave consistently and can run in different environments.
-* What are the three principle that redux follows?
+* **What are the three principle that redux follows?**
 * Single source of truth
 * State is read-only
 * Changes are made with pure functions

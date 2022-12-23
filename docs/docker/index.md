@@ -51,6 +51,14 @@
 * **echo $(env variable name)** it's also an another way to get the value of a specific environment variable.
 * **export (variable name)=(variable value)** used to set an environment variable to the current session.
 * **kill (process id)** used to kill a process that is running.
+* **useradd (-m (create home) | -M (no create home) ) (name of the user)** used this command to create an user and this user list stored at **cat /etc/passwd** file and have a look in it using cat command.
+* User name are located in **/etc/passwd** file and password located in **/etc/shadow** file.
+* **usermod -s /bin/bash (name of the user)** use this command to modify the shell program of an user.
+* **docker exec -it -u (user name need to login) (container id) bash** used this command to login to the docker using an another user account.
+* **userdel (user name)** use this command to delete an specific user account.
+* **groupadd (new group name)** used to create a new group. This list of groups can be found in **/etc/group**.
+* **groupmod -G (it means to add to supplymentary group) (group name) (user name)** this command is used to add a user to a specific supplymentary group.
+* **groupdel** is used to delete a group.
 
 > **Docker basic commands**
 

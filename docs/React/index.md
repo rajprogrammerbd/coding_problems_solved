@@ -89,95 +89,95 @@
 * Two-way data binding
 * Runtime debugging
 * **What do you understand from “In React, everything is a Component”?**
-* Components are the building blocks of a React application’s UI
-* Components split up the entire UI into small independent and reusable pieces
-* JavaScript functions which takes in arbitrary inputs and returns HTML representation
+* Components are the building blocks of a React application’s UI.
+* Components split up the entire UI into small independent and reusable pieces.
+* JavaScript functions which takes in arbitrary inputs and returns HTML representation.
 * **What are Props in React?**
-* Short for properties
-* Read-only
-* Pure or immutable
-* Always passed down from parent to child component
-* Used to render dynamic data
+* Short for properties.
+* Read-only.
+* Pure or immutable.
+* Always passed down from parent to child component.
+* Used to render dynamic data.
 * **What is a State in React and how it is used?**
-* Heart of react component
-* Must be kept as simple as possible
-* Determine components rendering and behavior
-* Accessed via this.state()
+* Heart of react component.
+* Must be kept as simple as possible.
+* Determine components rendering and behavior.
+* Accessed via this.state().
 * **What are React Hooks?**
 * Functions that lets us hook into React state and lifecycle features from a functional component.
-* React hooks can’t be used in class components
+* React hooks can’t be used in class components.
 * **Do you know any of the techniques to optimize React app performance?**
-* Using useMemo()
-* It’s a React hook that is used for caching CPU-Expensive functions
-* useMemo() hook can be used to cache such functions
+* Using useMemo().
+* It’s a React hook that is used for caching CPU-Expensive functions.
+* useMemo() hook can be used to cache such functions.
 
 * Using React.PureComponent –
 * It’s a base component class that checks the state and props of a component to know weather the component should be updated.
 * **Maintaining state colocation –**
-* This is a process of moving the state as close to where we need it as possible
+* This is a process of moving the state as close to where we need it as possible.
 * **What is lazy loading?**
 * Lazy loading is the feature introduced in React v16.6, which allows for some Components to load later that other components.
 * It is also referred to as code splitting and data fetching.
 * **What do you mean by Context in React?**
 * The react context API is a way for a React app to effectively produce global variables that can be passed around.
-* This is the alternative to “Props Drilling”
-* A new type of context can be created using React.createContext API
+* This is the alternative to “Props Drilling”.
+* A new type of context can be created using React.createContext API.
 * **What do you mean by Prop Drilling?**
 * It can be defined as a process in React app where props are passed from one part of a tree to another by going through other parts that do not need the data, but only help in passing it through the tree.
-* It is also known as Prop Threading
-* Differentiate between stateful and stateless components
+* It is also known as Prop Threading.
+* Differentiate between stateful and stateless components.
 * ***Stateful Component***
-* Stores info about component state change in memory
-* Have authority to change state
-* Contains the knowledge of past, current and possible future changes in state
-* Stateless components notifies them about the requirements of the state changes, then they send down the props to them
+* Stores info about component state change in memory.
+* Have authority to change state.
+* Contains the knowledge of past, current and possible future changes in state.
+* Stateless components notifies them about the requirements of the state changes, then they send down the props to them.
 
 * ***Stateless Component***
-* Calculate the internal state of the components
-* Do not have the authority to change state
-* Contains no knowledge of past, current and possible future state changes
+* Calculate the internal state of the components.
+* Do not have the authority to change state.
+* Contains no knowledge of past, current and possible future state changes.
 * They receive the props from stateFull components to treat them as callback functions.
 * **What do you know about controlled and uncontrolled components?**
 * ***Controlled components***
-* Don’t maintain their own state
-* Data is controlled by the parent component
-* Takes in current values through props and notifies changes via callbacks
+* Don’t maintain their own state.
+* Data is controlled by the parent component.
+* Takes in current values through props and notifies changes via callbacks.
 * ***Uncontrolled components***
-* Maintain their own state
-* Data is controlled by the DOM
-* Refs are used to get their current value
+* Maintain their own state.
+* Data is controlled by the DOM.
+* Refs are used to get their current value.
 * **What are higher order components?**
-* Custom components which wraps another component
-* They accept dynamically provided child components
-* Do not modify the input component
-* Do not copy any behavior from the input component
+* Custom components which wraps another component.
+* They accept dynamically provided child components.
+* Do not modify the input component.
+* Do not copy any behavior from the input component.
 * Are “Pure” functions.
 * **What can you do with HOC?**
-* Code reuse, logic and bootstrap abstraction
-* Render high jacking
-* State abstraction and manipulation
-* Props manipulation
+* Code reuse, logic and bootstrap abstraction.
+* Render high jacking.
+* State abstraction and manipulation.
+* Props manipulation.
 * **What are pure components?**
-* Pure components are the simplest, fastest components which we can write
-* Can replace any component that only has render()
-* Enhances the simplicity and performance of the application
+* Pure components are the simplest, fastest components which we can write.
+* Can replace any component that only has render().
+* Enhances the simplicity and performance of the application.
 * **What were the major problems with MVC frameworks?**
-* DOM Manipulation was very expensive
-* Slow and inefficient
-* Memory wastage
+* DOM Manipulation was very expensive.
+* Slow and inefficient.
+* Memory wastage.
 * Because of circular dependencies, complicated model was created around models and views.
 * **What is Redux?**
-* Redux one of the hottest libraries for front end development
-* Redux is a predictable state container for JavaScript apps
+* Redux one of the hottest libraries for front end development.
+* Redux is a predictable state container for JavaScript apps.
 * Mostly used for application state management.
 * Application developed with Redux are easy to test.
 * Helps to write applications that behave consistently and can run in different environments.
 * **What are the three principle that redux follows?**
-* Single source of truth
-* State is read-only
-* Changes are made with pure functions
-* List down the components of Redux
-* Action – It’s an object that describes what happened
-* Reducer – It’s a place to determine how the state will change
-* Store – State/Object tree of the entire application is saved in the store
-* View – Simply displays the data provided by the store
+* Single source of truth.
+* State is read-only.
+* Changes are made with pure functions.
+* List down the components of Redux.
+* Action – It’s an object that describes what happened.
+* Reducer – It’s a place to determine how the state will change.
+* Store – State/Object tree of the entire application is saved in the store.
+* View – Simply displays the data provided by the store.

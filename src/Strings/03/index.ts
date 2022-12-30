@@ -1,6 +1,8 @@
 
 
 function validPalindrome(str: string): boolean {
+    str = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+    
     if (str.length <= 1) {
         return true;
     }

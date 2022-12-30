@@ -30,4 +30,10 @@ describe('validPalindrome', () => {
 
         expect(value).toBeTruthy();
     });
+
+    it('should be returned true', () => {
+        const value = validPalindrome('A man, a plan, a canal: Panama');
+
+        expect(value).toBeTruthy();
+    });
 });

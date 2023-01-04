@@ -77,6 +77,9 @@
 * **docker run -it (image name)** to run a container in interactive mode. This will gives us shall (shall is a program that passes command to the operating system).
 * **docker start -i (container id)** used to start the stop container in interactive mode.
 * **exit** used to exit from the interactive terminal mode.
+* **docker build -t (tag application name) .(define where the docker file located)** this command will build an docker image.
+* **.dockerignore** to add this file, we can make sure that folder escape from the docker.
+* **addgroup raj(name of the new group) && adduser -S(create system user) -G (name of the group to add) (name of the new user)** this will create a new user and a new group and add the new user to it.
 
 > **Docker development workflow**
 

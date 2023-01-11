@@ -3,7 +3,12 @@
 * ReactJS is an open-source frontend JavaScript library which is used to build user interface and handle view layers for web and mobile applications. It follows a component-based approach.The React package contain only the functionality necessary to define React component. It is typically used together with a React renderer like react-DOM for the web or react-native for the native environments.
 
 * **What are the features of React.js?**
-* ***Virtual DOM*** Server-side rendering. Uni-directional data flow or data binding. List some of the advantages of React. Increases the application’s performance. Can be used on the client as well as server side. Readability is improved. Easy to integrate. Easy to write UI test cases.
+* *Virtual DOM*
+* *Server-side rendering*
+* *Uni-directional data flow or data binding*
+
+* **List some of the advantages of React** Increases the application’s performance. Can be used on the client as well as server side. Readability is improved. Easy to integrate. Easy to write UI test cases.
+
 * **What is JSX?** JSX stands for JavaScript XML. Utilizes the expressiveness of JavaScript with a HTML-like template syntax. Makes HTML easy to understand. It is Robust. Boots up the JS Performance. JSX expression must have only one outermost element.
 
 * **What do you understand by Virtual DOM?** A virtual DOM is a lightweight JavaScript object which is the copy of the real DOM. Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation. Then the difference between the previous DOM representation and the new one is calculated. Once the calculations are done, the real DOM will be updated with only the things that have actually changed.
@@ -73,7 +78,7 @@ Stateless components notifies them about the requirements of the state changes, 
 
 * **What are the three principle that redux follows?**
 
-* *Single Source of Truth:* The global state of an app is stored within an object tree in a single store. As a result, it becomes easier to build universal apps due to the server’s state being serialized into the client without any extra codes. A single state tree, in turn, makes it easy to inspect an app.
+* *Single Source of Truth:* Redux consists of a single store, which is a JavaScript value containing the entire state of your application. A single source of truth comes with a lot of benefits: In traditional applications, the state is stored in different places across the whole application.
 
 * *Read-only State:* There is only one way for changing the state–emit an action or an object that describes what happened. As per the second principle, neither the network nor the views callbacks would ever write to the state. Instead of it, these express intent for the transformation of the form.
 

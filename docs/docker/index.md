@@ -2,6 +2,10 @@
 
 * **What is Docker?** A platform for building, running and shiping applications. With docker, we can easily package our application and run it into anywhere on any machine with docker.
 
+* **What is an image?** an image includes everything an application needs to run, it contain a cut down os system, third party libraries, application files, and environmental variable. Once we have an image, we can start a container from it.
+
+* **What is container?** A container is like a virtual machine, it provides an isolated environment executing an application. It can be stopped and re-started. Technically it just a process. It has it's own file-system provided by the image.
+
 * **Virtual Machines vs Containers**
 
 | Virtual Machines      | Containers |
@@ -73,6 +77,9 @@
 * **docker run -it (image name)** to run a container in interactive mode. This will gives us shall (shall is a program that passes command to the operating system).
 * **docker start -i (container id)** used to start the stop container in interactive mode.
 * **exit** used to exit from the interactive terminal mode.
+* **docker build -t (tag application name) .(define where the docker file located)** this command will build an docker image.
+* **.dockerignore** to add this file, we can make sure that folder escape from the docker.
+* **addgroup raj(name of the new group) && adduser -S(create system user) -G (name of the group to add) (name of the new user)** this will create a new user and a new group and add the new user to it.
 
 > **Docker development workflow**
 
@@ -80,3 +87,14 @@
 * For docerizing the application, create Dockerfile and add instruction to package an application to an image.
 * This image contains everything that need to run the application.
 * Once we have an image, we tell docker to start a container an image. So application gets loaded inside of a container or process (locally).
+
+> **Docker Instructions**
+
+* **FROM** to specific the base image.
+* **WORKDIR** to specifiy the working directory.
+* **COPY & ADD** to copying files to the directory.
+* **RUN** to execute the linux commands.
+* **ENV** to setting the environmental variable.
+* **EXPOSE** to tell docker that our container running on given port.
+* **USER** to specify who runs the application.
+* **CMD & ENTERYPOINT** for specify the command to execute when to start a container.

@@ -78,6 +78,7 @@
 * **docker start -i (container id)** used to start the stop container in interactive mode.
 * **exit** used to exit from the interactive terminal mode.
 * **docker build -t (tag application name) .(define where the docker file located)** this command will build an docker image.
+* **docker build -t (application with name):(tag version) (define where the docker file located)** this command used to build an image with adding the tag.
 * **.dockerignore** to add this file, we can make sure that folder escape from the docker.
 * **addgroup raj(name of the new group) && adduser -S(create system user) -G (name of the group to add) (name of the new user)** this will create a new user and a new group and add the new user to it.
 

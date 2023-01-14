@@ -1,8 +1,11 @@
-FROM node:19.3.0-alpine3.17
+FROM node:18-buster
+RUN addgroup teams && adduser raj
+RUN usermod -a -G teams raj
+USER raj
 WORKDIR /app
-COPY . . 
+COPY package*.json . 
 RUN npm install
+COPY . .
 ENV API_URL=http://www.google.com
 EXPOSE 3000
-RUN addgroup app && adduser -S -G app app
-USER app
+ENTRYPOINT [ "yarn", "start" ]

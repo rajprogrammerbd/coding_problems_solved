@@ -8,4 +8,4 @@ RUN npm install
 COPY . .
 ENV API_URL=http://www.google.com
 EXPOSE 3000
-ENTRYPOINT [ "yarn", "start" ]
+ENTRYPOINT [ "yarn", "run", "test" ]

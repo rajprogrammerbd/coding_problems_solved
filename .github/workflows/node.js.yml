@@ -29,5 +29,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: yarn run test
-    - run: docker build -t node-app .
-    - run: docker run node-app
+

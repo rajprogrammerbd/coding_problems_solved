@@ -4,7 +4,7 @@ RUN chmod 777 /
 RUN usermod -a -G teams raj
 USER raj
 WORKDIR /app
-COPY package*.json .
+COPY package*.json /
 RUN npm install
 COPY / /
 ENV API_URL=http://www.google.com

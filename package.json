@@ -8,6 +8,7 @@
   "scripts": {
     "start": "nodemon",
     "test": "jest --coverage",
+    "no-coverage-test": "jest",
     "test:watch": "jest --watch"
   },
   "devDependencies": {

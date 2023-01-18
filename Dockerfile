@@ -1,5 +1,7 @@
 FROM node:18-buster
 RUN addgroup teams && adduser raj
+RUN usermod -a -G teams raj
+USER raj
 WORKDIR /app
 COPY package*.json /
 RUN npm install

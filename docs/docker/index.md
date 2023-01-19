@@ -83,6 +83,10 @@
 * **.dockerignore** to add this file, we can make sure that folder escape from the docker.
 * **addgroup raj(name of the new group) && adduser -S(create system user) -G (name of the group to add) (name of the new user)** this will create a new user and a new group and add the new user to it.
 
+* **docker image save -o (file name and ext which we want to output) (image name)** This command going to give us a file of docker image which we can use to any machine.
+
+* **docker image load -i (zip file location)** this command is used to load the zip file we save and locally to docker instead of pull it from dockerhub.
+
 > **Docker development workflow**
 
 * Go into the application.

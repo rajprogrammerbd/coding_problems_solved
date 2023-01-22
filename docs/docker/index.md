@@ -69,12 +69,14 @@
 * **docker version** for the version.
 * **docker image ls** to get all the list of the images.
 * **docker run (image name)** to run an image.
+* **docker run -d --name (use a name) (image name)** this command is used to run the image behind the scene and and give name to the running container.
 * **docker pull (image name)** to pull an image from dockerhub.
 * **docker run (image name)** to run the image, if this image available locally then it will run otherwise first pull the image and then run the image.
 * **docker ps** is to check the running containers.
 * **docker ps -a** is to get all the containers.
 * **docker container prune** to remove all the containers.
 * **docker run -it (image name)** to run a container in interactive mode. This will gives us shall (shall is a program that passes command to the operating system).
+* **docker run -d --name (give a name) -p (current port):(new port) (image name)** this command is used to give a port for the host to access from the container.
 * **docker start -i (container id)** used to start the stop container in interactive mode.
 * **exit** used to exit from the interactive terminal mode.
 * **docker build -t (tag application name) .(define where the docker file located)** this command will build an docker image.
@@ -82,6 +84,7 @@
 * **docker image tag (image name):(old image tag) (image name):(new image tag version)** this is the way we can add tag to the existed image.
 * **.dockerignore** to add this file, we can make sure that folder escape from the docker.
 * **addgroup raj(name of the new group) && adduser -S(create system user) -G (name of the group to add) (name of the new user)** this will create a new user and a new group and add the new user to it.
+* **docker logs -f -t (container id)** use this command to get the logs in real time and with the timestamp since we used -t flag.
 
 * **docker image save -o (file name and ext which we want to output) (image name)** This command going to give us a file of docker image which we can use to any machine.
 

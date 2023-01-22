@@ -8,4 +8,5 @@ USER raj
 COPY *package*json /app
 RUN yarn install
 COPY . /app
+EXPOSE 3000
 ENTRYPOINT [ "yarn", "run", "test" ]

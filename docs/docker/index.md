@@ -77,6 +77,8 @@
 * **docker container prune** to remove all the containers.
 * **docker run -it (image name)** to run a container in interactive mode. This will gives us shall (shall is a program that passes command to the operating system).
 * **docker run -d --name (give a name) -p (current port):(new port) (image name)** this command is used to give a port for the host to access from the container.
+* **docker exec (container id) (command we want to run)** this command used to run a specific command in a running command.
+* **docker exec -it (container id) sh** this command is used to open a shell seassion to a running container.
 * **docker start -i (container id)** used to start the stop container in interactive mode.
 * **exit** used to exit from the interactive terminal mode.
 * **docker build -t (tag application name) .(define where the docker file located)** this command will build an docker image.

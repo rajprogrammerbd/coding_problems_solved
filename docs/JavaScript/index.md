@@ -80,3 +80,20 @@
 * **What is the purpose of the array slice method?** The ```slice()``` methods give us the flexibility of making a slice out of an array. It will start from the given first parameter index and till to the last optional parameter index, if not pass the last parameter so then it will return all the value till the end and it always returns as a new array object.
 
 * **What is Singleton pattern?** A singleton pattern basically means, it create a single instance of a problem or code that can be shared thoughout the whole application.
+
+* **What are the 4 pillars of OOP?**
+
+```text
+* Encapsulation
+* Abstraction
+* Inheritance
+* Polymorphism
+```
+
+* **What is Encapsulation in OOP?** Encapsulation is the process of making the data private so that it can't be accessed or modified out of the class or function. To acchived this, we could use the `private` or `protected` keyword in the class.
+
+* **What is Abstraction in OOP?** Abstraction is about keeping the process simply by hidding unnecessary details from a user.
+
+* **What is Inheritance in OPP?** in JavaScript, it is possible to create an object that inherits the methods and properties of another object.
+
+* **What is Polymorphism?** In OOP, polymorphism can be implemented with inheritance. The methods of the child class will have the same name as those of the parent class. The child class method overrides the method inherited from the parent class, when called with the child class object. This kind of implementation is called method overriding.

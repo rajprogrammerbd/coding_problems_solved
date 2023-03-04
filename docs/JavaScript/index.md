@@ -78,3 +78,5 @@
 * **What is JSON?** JSON is a text-based data format following JavaScript object syntax.
 
 * **What is the purpose of the array slice method?** The ```slice()``` methods give us the flexibility of making a slice out of an array. It will start from the given first parameter index and till to the last optional parameter index, if not pass the last parameter so then it will return all the value till the end and it always returns as a new array object.
+
+* **What is Singleton pattern?** A singleton pattern basically means, it create a single instance of a problem or code that can be shared thoughout the whole application.

@@ -224,4 +224,92 @@ singleList.push({ id: 4, name: 'Papa' });
 const founded = singleList.find({ id: 13, name: 'Raj' });
 singleList.remove({ id: 2, name: 'Raj' });
 
-console.log('singleLinkedList', singleList.head);
+class DoublyNode {
+    public value: Structure;
+    public next: DoublyNode | null;
+    public prev: DoublyNode | null;
+
+    constructor (value: Structure) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList {
+    public head: DoublyNode | null;
+    public length: number;
+    public tail: DoublyNode | null;
+
+    constructor () {
+        this.head = null;
+        this.length = 0;
+        this.tail = null;
+    }
+
+    push(val: Structure) {
+        const newNode = new DoublyNode(val);
+
+        if (this.length === 0) {
+             this.head = newNode;
+             this.tail = newNode;
+             this.length = 1;
+             return;
+        }
+
+        if (this.tail !== null) {
+            newNode.prev = this.tail;
+            this.tail.next = newNode;
+            this.tail = newNode;
+
+            this.length++;
+        }
+    }
+
+    remove(id: number): void {
+        let current = this.head;
+
+        if (this.head?.value.id === id) {
+            if (this.head.next === null) {
+                this.head = null;
+                this.tail = null;
+                this.length = 0;
+                return;
+            } else {
+                this.head = this.head.next;
+                this.head.prev = null;
+                this.length--;
+            }
+        }
+
+        while (current) {
+
+            if (current.value.id === id) {
+                if (current.next !== null) {
+                    if (current.prev !== null) {
+                        current.next.prev = current.prev;
+                        current.prev.next = current.next;
+                    }
+                } else {
+                    this.tail = current.prev;
+                    if (this.tail !== null) {
+                        this.tail.next = null;
+                    }
+                }
+                this.length--;
+            }
+
+            current = current.next;
+        }
+    }
+}
+
+const doublyList = new DoublyLinkedList();
+
+doublyList.push({ id: 1, name: 'Raj' });
+doublyList.push({ id: 2, name: 'Dola' });
+doublyList.push({ id: 3, name: 'Mom' });
+doublyList.push({ id: 4, name: 'Papa' });
+doublyList.remove(2);
+
+console.log('DoublyLinkedList ', doublyList.head?.next);

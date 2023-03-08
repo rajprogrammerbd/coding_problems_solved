@@ -312,4 +312,88 @@ doublyList.push({ id: 3, name: 'Mom' });
 doublyList.push({ id: 4, name: 'Papa' });
 doublyList.remove(2);
 
-console.log('DoublyLinkedList ', doublyList.head?.next);
+type Store = [string, string | number];
+type Str = Store[];
+class HashMap {
+    protected keys: Str[];
+
+    constructor (key: number = 53) {
+        this.keys = new Array(key);
+    }
+
+    protected _hash(key: string) {
+        const PRIMITIVE_NUMBER = 31;
+        let value = 0;
+
+        for (let i = 0; i < Math.min(100, key.length); i++) {
+            const char = key[i];
+            const code = char.charCodeAt(0) - 96;
+
+            value = (value + PRIMITIVE_NUMBER * code) % this.keys.length;
+        }
+        
+        return value;
+    }
+
+    push(key: string, value: string): void {
+        const hashed = this._hash(key);
+
+        if (this.keys[hashed] === undefined) {
+            this.keys[hashed] = [];
+        }
+
+        this.keys[hashed].push([key, value]);
+    }
+
+    get(key: string): string | number | boolean {
+        
+        for (let i = 0; i < this.keys.length; i++) {
+            if (this.keys[i] !== undefined) {
+                for (let j = 0; j < this.keys[i].length; j++) {
+                    if (this.keys[i][j][0] === key) {
+                        return this.keys[i][j][1];
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    hash_keys(): string[] {
+        const array = [];
+
+        for (let i = 0; i < this.keys.length; i++) {
+            if (this.keys[i] !== undefined) {
+                for (let j = 0; j < this.keys[i].length; j++) {
+                    array.push(this.keys[i][j][0]);
+                }
+            }
+        }
+
+        return array;
+    }
+
+    hash_values(): (string | number)[] {
+        const array = [];
+
+        for (let i = 0; i < this.keys.length; i++) {
+            if (this.keys[i] !== undefined) {
+                for (let j = 0; j < this.keys[i].length; j++) {
+                    array.push(this.keys[i][j][1]);
+                }
+            }
+        }
+
+        return array;
+    }
+}
+
+const hashMap = new HashMap(100);
+
+hashMap.push('my name', 'Raj Dutta');
+hashMap.push('my sister name', 'Dola Dutta');
+hashMap.push('my mother name', 'Arati Rani Dutta');
+hashMap.push('my father name', 'Taposh kumar Dutta');
+
+console.log('hashMap ', hashMap.hash_keys(), hashMap.hash_values());

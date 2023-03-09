@@ -537,4 +537,90 @@ queue.pop();
 queue.pop();
 queue.pop();
 
-console.log('queue ', queue);
+class BST_Node {
+    public value: number;
+    public left: BST_Node | null;
+    public right: BST_Node | null;
+
+    constructor (val: number) {
+        this.value = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BST {
+    public root: BST_Node | null;
+
+    constructor () {
+        this.root = null;
+    }
+
+    push(val: number): void {
+        const newNode = new BST_Node(val);
+
+        if (this.root === null) {
+            this.root = newNode;
+            return;
+        }
+
+        let current = this.root;
+
+        while (true) {
+            if (current.value === val) {
+                return;
+            }
+            
+            if (current.value > val) {
+                if (current.left !== null) {
+                    current = current.left;
+                } else {
+                    current.left = newNode;
+                    return;
+                }
+            } else {
+                if (current.right !== null) {
+                    current = current.right;
+                } else {
+                    current.right = newNode;
+                    return;
+                }
+            }
+        }
+    }
+
+    find(val: number): boolean {
+        
+        let current = this.root;
+        while (true) {
+            if (current?.value === val) {
+                return true;
+            }
+
+            if (current?.value !== undefined) {
+                if (current.value > val) {
+                    if (current.left === null) {
+                        return false;
+                    }
+
+                    current = current.left;
+                } else {
+                    if (current.right === null) {
+                        return false;
+                    }
+
+                    current = current.right;
+                }
+            }
+        }
+    }
+}
+
+const bst = new BST();
+
+bst.push(58);
+bst.push(14);
+bst.push(75);
+bst.push(7);
+
+console.log('binarySearchTree', bst.find(14));

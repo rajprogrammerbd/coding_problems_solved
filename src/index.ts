@@ -396,4 +396,145 @@ hashMap.push('my sister name', 'Dola Dutta');
 hashMap.push('my mother name', 'Arati Rani Dutta');
 hashMap.push('my father name', 'Taposh kumar Dutta');
 
-console.log('hashMap ', hashMap.hash_keys(), hashMap.hash_values());
+class Stack_Node {
+    public value: number;
+    public next: Stack_Node | null;
+
+    constructor (value: number) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Stack {
+    private first: Stack_Node | null;
+    private last: Stack_Node | null;
+    private size: number;
+
+    constructor () {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+
+    push(val: number): void {
+        const newNode = new Stack_Node(val);
+
+        if (this.size === 0) {
+            this.first = newNode;
+            this.last = newNode;
+            this.size = 1;
+            return;
+        }
+
+        if (this.last !== null) {
+            this.last.next = newNode;
+            this.last = newNode;
+            this.size++;
+        }
+    }
+
+    pop(): void {
+        let current = this.first;
+        const last = this.last?.value;
+
+        if (this.first?.value === last) {
+            this.first = null;
+            this.last = null;
+            this.size = 0;
+
+            return;
+        }
+
+        while (current) {
+            if (current.next?.value === last) {
+                current.next = null;
+                this.size--;
+                this.last = current;
+                break;
+            }
+
+            current = current.next;
+        }
+    }
+}
+
+const stack = new Stack();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.push(4);
+
+stack.pop();
+stack.pop();
+stack.pop();
+stack.pop();
+
+class Queue_Node {
+    public value: number;
+    public next: Queue_Node | null;
+
+    constructor (val: number) {
+        this.value = val;
+        this.next = null;
+    }
+}
+
+class Queue {
+    public first: Queue_Node | null;
+    public last: Queue_Node | null;
+    public size: number;
+
+    constructor () {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+
+    push(val: number): Queue_Node {
+        const newNode = new Queue_Node(val);
+
+        if (this.size === 0) {
+            this.first = newNode;
+            this.last = newNode;
+            this.size = 1;
+        } else {
+            if (this.last !== null) {
+                this.last.next = newNode;
+                this.last = newNode;
+                this.size++;
+            }
+        }
+
+        return newNode;
+    }
+
+    pop(): void {
+        if (this.size === 1) {
+            this.first = null;
+            this.last = null;
+            this.size = 0;
+        } else {
+            if (this.first !== null) {
+                const second = this.first.next;
+                this.first = second;
+                this.size--;
+            }
+        }
+    }
+}
+
+const queue = new Queue();
+
+queue.push(1);
+queue.push(2);
+queue.push(3);
+queue.push(4);
+
+queue.pop();
+queue.pop();
+queue.pop();
+queue.pop();
+
+console.log('queue ', queue);

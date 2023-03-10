@@ -658,6 +658,55 @@ class BST {
 
         return array;
     }
+
+    depthFirstSearchPreOrder(): number[] {
+        // I will write the implementation of Pre-Order Depth First Search
+        const data: number[] = [];
+
+        function traverse(node: BST_Node): void {
+            data.push(node.value);
+
+            if (node.left !== null) traverse(node.left);
+            if (node.right !== null) traverse(node.right);
+        }
+
+        if (this.root === null) return [];
+         
+        traverse(this.root);
+
+        return data;
+    }
+
+    depthFirstSearchPostOrder(): number[] {
+        const data: number[] = [];
+
+        function traverse(node: BST_Node): void {
+            if (node.left !== null) traverse(node.left);
+            if (node.right !== null) traverse(node.right);
+
+            data.push(node.value);
+        }
+
+        if (this.root === null) return [];
+
+        traverse(this.root);
+        return data;
+    }
+
+    depthFirstSearchInOrder(): number[] {
+        const data: number[] = [];
+
+        function traverse(node: BST_Node): void {
+            if (node.left !== null) traverse(node.left);
+            data.push(node.value);
+            if (node.right !== null) traverse(node.right);
+        }
+
+        if (this.root === null) return [];
+        traverse(this.root);
+
+        return data;
+    }
 }
 
 const bst = new BST();
@@ -667,5 +716,6 @@ bst.push(14);
 bst.push(75);
 bst.push(7);
 bst.push(20);
+bst.push(2);
 
 console.log('binarySearchTree', bst.breatheFirstSearch());

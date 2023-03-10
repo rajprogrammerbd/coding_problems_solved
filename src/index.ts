@@ -471,19 +471,19 @@ stack.pop();
 stack.pop();
 stack.pop();
 
-class Queue_Node {
-    public value: number;
-    public next: Queue_Node | null;
+class Queue_Node<T> {
+    public value: T;
+    public next: Queue_Node<T> | null;
 
-    constructor (val: number) {
+    constructor (val: T) {
         this.value = val;
         this.next = null;
     }
 }
 
-class Queue {
-    public first: Queue_Node | null;
-    public last: Queue_Node | null;
+class Queue<T> {
+    public first: Queue_Node<T> | null;
+    public last: Queue_Node<T> | null;
     public size: number;
 
     constructor () {
@@ -492,8 +492,8 @@ class Queue {
         this.size = 0;
     }
 
-    push(val: number): Queue_Node {
-        const newNode = new Queue_Node(val);
+    push(val: T): Queue_Node<T> {
+        const newNode = new Queue_Node<T>(val);
 
         if (this.size === 0) {
             this.first = newNode;
@@ -510,32 +510,48 @@ class Queue {
         return newNode;
     }
 
-    pop(): void {
+    shift(): Queue_Node<T> | null {
+        let removed: Queue_Node<T> | null;
+
         if (this.size === 1) {
+            removed = this.first;
+
             this.first = null;
             this.last = null;
             this.size = 0;
-        } else {
-            if (this.first !== null) {
-                const second = this.first.next;
-                this.first = second;
-                this.size--;
-            }
+
+            return removed;
         }
+
+        if (this.first === null) return null;
+        removed = this.first;
+        const second = this.first.next;
+        this.first = second;
+        this.size--;
+
+        return removed;
     }
 }
 
-const queue = new Queue();
+type IRes = {
+    id: number;
+    name: string;
+};
 
-queue.push(1);
-queue.push(2);
-queue.push(3);
-queue.push(4);
+const queue = new Queue<IRes>();
 
-queue.pop();
-queue.pop();
-queue.pop();
-queue.pop();
+queue.push({ id: 1, name: 'Raj Dutta' });
+queue.push({ id: 2, name: 'Dola Dutta' });
+queue.push({ id: 3, name: 'Arati Rani Dutta' });
+queue.push({ id: 4, name: 'Taposh Kumar Dutta' });
+
+// queue.shift();
+// queue.shift();
+// queue.shift();
+// queue.shift();
+// queue.shift();
+
+// console.log('queue ', queue);
 
 class BST_Node {
     public value: number;
@@ -614,6 +630,34 @@ class BST {
             }
         }
     }
+
+    breatheFirstSearch(): number[] {
+        const array: number[] = [];
+
+        const queue = new Queue<BST_Node>();
+
+        if (this.root === null) return [];
+
+        queue.push(this.root);
+
+        while (queue.size > 0) {
+
+            const removed = queue.shift();
+
+            if (removed === null) return [];
+            array.push(removed.value.value);
+
+            if (removed.value.left !== null) {
+                queue.push(removed.value.left);
+            }
+
+            if (removed.value.right !== null) {
+                queue.push(removed.value.right);
+            }
+        }
+
+        return array;
+    }
 }
 
 const bst = new BST();
@@ -622,5 +666,6 @@ bst.push(58);
 bst.push(14);
 bst.push(75);
 bst.push(7);
+bst.push(20);
 
-console.log('binarySearchTree', bst.find(14));
+console.log('binarySearchTree', bst.breatheFirstSearch());

@@ -9,7 +9,7 @@
     "start": "nodemon",
     "test": "jest --coverage",
     "no-coverage-test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch --coverage"
   },
   "devDependencies": {
     "@types/jest": "^29.1.2",

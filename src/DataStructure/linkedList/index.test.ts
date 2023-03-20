@@ -39,4 +39,16 @@ describe('SinglyLinkedList', () => {
         
         expect(object.findLengthOfCycle()).toBe(4);
     });
+
+    it('should not have a circle', () => {
+        const object = new SinglyLinkedList<number>();
+
+        object.push(1);
+        object.push(3);
+        object.push(4);
+        object.push(5);
+
+        expect(object.detectCycle()).toBeFalsy();
+        expect(object.findLengthOfCycle()).toBe(0);
+    });
 });

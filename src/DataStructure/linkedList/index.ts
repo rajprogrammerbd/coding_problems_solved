@@ -13,7 +13,7 @@ export class Node<T> {
 class SinglyLinkedList<T extends number> {
     public head: Node<T> | null;
     public tail: Node<T> | null;
-    public length: number;
+    private length: number;
     
     constructor () {
         this.head = null;
@@ -94,6 +94,36 @@ class SinglyLinkedList<T extends number> {
         } while (current?.value !== cycle.value);
 
         return count;
+    }
+
+    reverse(): SinglyLinkedList<T> {
+        if (this.head === null) return this;
+        let lists: Node<T> | null = null;
+        let current: Node<T> | null = this.head;
+        let temp: Node<T> | null;
+
+        const lastElement = this.head;
+
+        while (current) {
+            temp = new Node<T>(current.value);
+
+            if (!lists) {
+                lists = temp;
+            } else {
+                temp.next = lists;
+
+                lists = temp;
+            }
+
+            current = current.next;
+        }
+
+        lastElement.next = null;
+        
+        this.head = lists;
+        this.tail = lastElement;
+
+        return this;
     }
 }
 

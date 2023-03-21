@@ -51,4 +51,22 @@ describe('SinglyLinkedList', () => {
         expect(object.detectCycle()).toBeFalsy();
         expect(object.findLengthOfCycle()).toBe(0);
     });
+
+    it('should be reversed the list', () => {
+        const object = new SinglyLinkedList<number>();
+
+        object.push(1);
+        object.push(2);
+        object.push(3);
+        object.push(4);
+        object.push(5);
+
+        object.reverse();
+
+        expect(object.head?.value).toBe(5);
+        expect(object.head?.next?.value).toBe(4);
+        expect(object.head?.next?.next?.value).toBe(3);
+        expect(object.head?.next?.next?.next?.value).toBe(2);
+        expect(object.head?.next?.next?.next?.next?.value).toBe(1);
+    });
 });

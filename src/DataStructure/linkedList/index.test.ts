@@ -69,4 +69,28 @@ describe('SinglyLinkedList', () => {
         expect(object.head?.next?.next?.next?.value).toBe(2);
         expect(object.head?.next?.next?.next?.next?.value).toBe(1);
     });
+
+    it('should delete few items', () => {
+        const list = new SinglyLinkedList<number>();
+
+        list.push(1);
+        list.push(2);
+        list.push(3);
+        list.push(4);
+        list.push(5);
+        list.push(6);
+        list.push(7);
+        list.push(8);
+        
+        list.deletion(1);
+        list.deletion(5);
+        list.deletion(8);
+
+        expect(list.head?.value).toBe(2);
+        expect(list.head?.next?.value).toBe(3);
+        expect(list.head?.next?.next?.value).toBe(4);
+        expect(list.head?.next?.next?.next?.value).toBe(6);
+        expect(list.head?.next?.next?.next?.next?.value).toBe(7);
+        expect(list.tail?.value).toBe(7);
+    });
 });

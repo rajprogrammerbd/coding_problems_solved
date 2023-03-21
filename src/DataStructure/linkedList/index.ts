@@ -125,6 +125,76 @@ class SinglyLinkedList<T extends number> {
 
         return this;
     }
+
+    deletion(val: T): Node<T> | null {
+        let deletedElement: Node<T> | null = null;
+        let current = this.head;
+
+        if (this.head?.value === val) {
+            deletedElement = this.head;
+
+            if (this.head.next !== null) {
+                this.head = this.head.next;
+            } else {
+                this.head = null;
+                this.tail = null;
+                this.length = 0;
+            }
+
+            return deletedElement;
+        }
+
+        while (current) {
+            if (current.next?.value === val) {
+                const getNextVal = current.next.next;
+
+                if (getNextVal !== null && getNextVal !== undefined) {
+                    const isLast = getNextVal.next !== null ? false : true;
+                    deletedElement = getNextVal;
+
+                    if (isLast) {
+                        current.next = getNextVal;
+                        this.tail = getNextVal;
+                        this.length--;
+                    } else {
+                        current.next = getNextVal;
+                        this.length--;
+                    }
+
+                    return deletedElement;
+                } else {
+                    deletedElement = current.next;
+                    current.next = null;
+                    this.tail = current;
+                    this.length--;
+
+                    return deletedElement;
+                }
+            }
+
+            current = current.next;
+        }
+
+        return deletedElement;
+    }
 }
+
+console.clear();
+
+const list = new SinglyLinkedList<number>();
+
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.push(5);
+list.push(6);
+list.push(7);
+list.push(8);
+
+// list.deletion(2);
+list.deletion(8);
+
+console.log('list', list);
 
 export default SinglyLinkedList;

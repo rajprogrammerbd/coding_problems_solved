@@ -93,4 +93,29 @@ describe('SinglyLinkedList', () => {
         expect(list.head?.next?.next?.next?.next?.value).toBe(7);
         expect(list.tail?.value).toBe(7);
     });
+
+    it('remove all the duplication values been added to the LinkedList', () => {
+        const list = new SinglyLinkedList<number>();
+
+        // Add the data to the list
+        list.push(1);
+        list.push(2);
+        
+        // Add the 2 number second time.
+        list.push(2);
+
+        list.push(3);
+        
+        // Add the 3 number second time.
+        list.push(3);
+        list.push(3);
+
+        // Remove the duplications
+        list.removeDuplication();
+
+        expect(list.head?.value).toBe(1);
+        expect(list.head?.next?.value).toBe(2);
+        expect(list.head?.next?.next?.value).toBe(3);
+        expect(list.head?.next?.next?.next).toBeNull();
+    });
 });

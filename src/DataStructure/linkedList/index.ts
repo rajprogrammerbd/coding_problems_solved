@@ -1,4 +1,53 @@
 
+// Design of HashMap
+class HashMap<T extends string> {
+    protected keyMap: [T, number][][];
+
+    constructor (key = 53) {
+        this.keyMap = new Array(key);
+    }
+
+    protected _hash(key: T): number {
+        let count = 0;
+        const PRIMITIVE_NUMBER = 31;
+
+        for (let i = 0; i < key.length; i++) {
+            const char = key[i];
+            const code = char.charCodeAt(0);
+
+            count = (count * PRIMITIVE_NUMBER + code) % this.keyMap.length;
+        }
+
+        return count;
+    }
+
+    set(key: T, value: number): [T, number] {
+        const hashed = this._hash(key);
+
+        if (this.keyMap[hashed] === undefined) {
+            this.keyMap[hashed] = [];
+        }
+
+        this.keyMap[hashed].push([key, value]);
+
+        return [key, value];
+    }
+
+    get(key: T): number | null {
+        const hashed = this._hash(key);
+
+        if (this.keyMap[hashed] !== undefined) {
+            for (let i = 0; i < this.keyMap[hashed].length; i++) {
+                if (this.keyMap[hashed][i][0] === key) {
+                    return this.keyMap[hashed][i][1];
+                }
+            }
+        }
+
+        return null;
+    }
+}
+
 // The class structure of a Node
 export class Node<T> {
     public value: T;
@@ -57,6 +106,7 @@ class SinglyLinkedList<T extends number> {
             fastPointer = fastPointer.next.next;
 
             if (fastPointer?.value === slowPointer?.value) {
+                console.log('matched', slowPointer?.value);
                 break;
             }
         }
@@ -177,24 +227,41 @@ class SinglyLinkedList<T extends number> {
 
         return deletedElement;
     }
+
+    removeDuplication(): SinglyLinkedList<T> {
+        let current = this.head;
+        const hash = new HashMap<string>();
+
+        if (this.head === null) return this;
+
+        hash.set(this.head.value.toString(), this.head.value);
+
+        while (current) {
+            if (current.next !== null) {
+                const foundNext = hash.get(current.next.value.toString());
+
+                if (foundNext) {
+                    const next = current.next.next;
+
+                    if (next) {
+                        current.next = next;
+                        this.length--;
+                    } else {
+                        current.next = null;
+                        this.tail = current;
+                        this.length--;
+                    }
+                } else {
+                    hash.set(current.next.value.toString(), current.value);
+                    current = current.next;
+                }
+            } else {
+                current = current.next;
+            }
+        }
+
+        return this;
+    }
 }
-
-console.clear();
-
-const list = new SinglyLinkedList<number>();
-
-list.push(1);
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(5);
-list.push(6);
-list.push(7);
-list.push(8);
-
-// list.deletion(2);
-list.deletion(8);
-
-console.log('list', list);
 
 export default SinglyLinkedList;

@@ -8,7 +8,8 @@
   "scripts": {
     "start": "nodemon",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "no-coverage-test": "jest",
+    "test:watch": "jest --watch --coverage"
   },
   "devDependencies": {
     "@types/jest": "^29.1.2",

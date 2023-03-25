@@ -1,7 +1,16 @@
 console.clear();
 
+let myObject: Record<string, string>;
+
+myObject = {
+    name: 'Raj'
+};
+
+// Left to right => (2n + 1)
+// Right to left => (2n + 2)
+// Top to bottom => (n - 1) / 2
 class MaxBinaryHeap {
-    protected values: number[];
+    public values: number[];
 
     constructor () {
         this.values = [];
@@ -67,22 +76,4 @@ class MaxBinaryHeap {
     }
 }
 
-const heap = new MaxBinaryHeap();
-heap.push(10);
-heap.push(12);
-heap.push(11);
-heap.push(13);
-heap.push(14);
-heap.push(15);
-heap.push(16);
-heap.push(17);
-heap.push(18);
-heap.push(19);
-heap.push(20);
-
-heap.extractMax();
-heap.extractMax();
-heap.extractMax();
-heap.extractMax();
-
-console.log('heap', heap);
+export default MaxBinaryHeap;

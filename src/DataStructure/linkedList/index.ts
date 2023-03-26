@@ -228,6 +228,43 @@ class SinglyLinkedList<T extends number> {
         return deletedElement;
     }
 
+    removedItems(num: number) {
+		while (this.head !== null) {
+			if (this.head.value === num) {
+				const next = this.head.next;
+
+				if (next) {
+					this.head = next;
+				} else {
+					this.head = null;
+					this.tail = null;
+				}
+			} else break;
+
+
+		}
+
+		if (this.head === null) return this;
+
+		let current = this.head;
+
+		while (current) {
+			if (current.next !== null && current.next.value === num) {
+				const next = current.next.next;
+
+				if (next) {
+					current.next = next;
+				} else {
+					current.next = null;
+					this.tail = current;
+					break;
+				}
+			} else {
+				current = current.next as Node<T>;
+			}
+		}
+	}
+
     removeDuplication(): SinglyLinkedList<T> {
         let current = this.head;
         const hash = new HashMap<string>();

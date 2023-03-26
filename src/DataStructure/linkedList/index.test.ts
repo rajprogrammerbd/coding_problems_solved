@@ -118,4 +118,24 @@ describe('SinglyLinkedList', () => {
         expect(list.head?.next?.next?.value).toBe(3);
         expect(list.head?.next?.next?.next).toBeNull();
     });
+
+    it('should removed all the elements which matched with passed parameter', () => {
+        const list = new SinglyLinkedList<number>();
+
+        list.push(1);
+        list.push(1);
+        list.push(1);
+        list.push(1);
+        list.push(2);
+        list.push(3);
+        list.push(4);
+        list.push(1);
+
+        list.push(1);
+
+        list.removedItems(1);
+
+        expect(list.head?.value).toBe(2);
+        expect(list.tail?.value).toBe(4);
+    });
 });

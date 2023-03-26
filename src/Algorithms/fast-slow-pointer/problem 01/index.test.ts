@@ -10,6 +10,6 @@ describe('happyNumber', () => {
     it('should be return false', () => {
         const value = happyNumber(12);
 
-        expect(value).toBeTruthy();
+        expect(value).toBeFalsy();
     });
 });

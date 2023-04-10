@@ -2,5 +2,5 @@
     "watch": ["src"],
     "ext": ".ts,.js",
     "ignore": [],
-    "exec": "ts-node ./src/DataStructure/binaryHeap/priorityQueue.ts"
+    "exec": "ts-node ./src/DataStructure/Graphs/index.ts"
 }

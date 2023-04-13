@@ -2,5 +2,5 @@
     "watch": ["src"],
     "ext": ".ts,.js",
     "ignore": [],
-    "exec": "ts-node ./src/Algorithms/pattern-sliding-window/03/index.ts"
+    "exec": "ts-node ./src/Algorithms/pattern-sliding-window/04/index.ts"
 }

@@ -1,0 +1,3 @@
+***Problem:-***
+
+> **Sorted sequred array**

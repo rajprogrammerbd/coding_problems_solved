@@ -15,3 +15,5 @@
 * **What is Fibonacci Sequence?** the Fibonacci sequence is a sequence in which each number is the sum of the two preceding ones.
 
 * **What is Dynamic Programming?** A method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions.
+
+* **What is Thread Pool in NodeJs?** The worker pool (aka thread pool) is an execution model that spawns and handles separate threads, which then synchronously perform the task and return the result to the event loop. The event loop then executes the provided callback with said result.

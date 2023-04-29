@@ -70,7 +70,7 @@ Stateless components notifies them about the requirements of the state changes, 
 
 * **What can you do with HOC?** Code reuse, logic and bootstrap abstraction. Render high jacking. State abstraction and manipulation. Props manipulation.
 
-* **What are pure components?** Pure components are the simplest, fastest components which we can write. Can replace any component that only has render(). Enhances the simplicity and performance of the application.
+* **What are pure components?** Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized React.memo() API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations.
 
 * **What were the major problems with MVC frameworks?** DOM Manipulation was very expensive. Slow and inefficient. Memory wastage. Because of circular dependencies, complicated model was created around models and views.
 

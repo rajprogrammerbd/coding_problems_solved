@@ -87,3 +87,5 @@ Stateless components notifies them about the requirements of the state changes, 
 * **What is throttling?** Throttling is a technique used to limit execution of an event handler function, even when the event triggers continuously due to the user actions.
 
 * **What is a wrapper component?** A wrapper in React is a component that wraps or surrounds another component or group of components. It can be used for a variety of purposes such as adding additional functionality, styling, or layout to the wrapped components.
+
+* **What is state mutation?** State mutation happens when you try to update the state of a component without actually using setState function.

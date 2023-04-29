@@ -85,3 +85,5 @@ Stateless components notifies them about the requirements of the state changes, 
 * *The Modifications are Done with Pure Functions:* In order to specify how can the state tree be transformed by actions, you can write pure reducers. The reducers are merely pure functions, which take the previous state as well as action and move it to the next state. You should remember that you should return to new state objects other than mutating to the last state.
 
 * **What is throttling?** Throttling is a technique used to limit execution of an event handler function, even when the event triggers continuously due to the user actions.
+
+* **What is a wrapper component?** A wrapper in React is a component that wraps or surrounds another component or group of components. It can be used for a variety of purposes such as adding additional functionality, styling, or layout to the wrapped components.

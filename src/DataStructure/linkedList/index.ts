@@ -106,7 +106,6 @@ class SinglyLinkedList<T extends number> {
             fastPointer = fastPointer.next.next;
 
             if (fastPointer?.value === slowPointer?.value) {
-                console.log('matched', slowPointer?.value);
                 break;
             }
         }

@@ -8,7 +8,6 @@ type Structure = {
 };
 
 function recursive(arr: number[]): number[] | undefined {
-    console.log('array', arr);
     if (arr.length === 1) return arr;
 
     arr.pop();
@@ -717,5 +716,3 @@ bst.push(75);
 bst.push(7);
 bst.push(20);
 bst.push(2);
-
-console.log('binarySearchTree', bst.breatheFirstSearch());

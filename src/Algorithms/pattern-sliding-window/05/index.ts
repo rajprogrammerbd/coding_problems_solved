@@ -23,7 +23,6 @@ function noRepeatSubString(str: string): number {
     return count;
 }
 
-const value = noRepeatSubString('abccde');
-console.log(value); // 3
+noRepeatSubString('abccde');
 
 export default noRepeatSubString;

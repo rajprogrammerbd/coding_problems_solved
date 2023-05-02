@@ -17,8 +17,6 @@ function twoSum(arr: number[], total: number): number[] | null {
     return null;
 }
 
-const value = twoSum([3, 5, -4, 8, 11, 1, -1, 6], 10);
-
-console.log('value ', value);
+twoSum([3, 5, -4, 8, 11, 1, -1, 6], 10);
 
 export default twoSum;

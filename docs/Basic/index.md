@@ -12,7 +12,7 @@
 
 * **What is continuous integration?** Continuous integration is a development practics in which the developers are required to commit changes to the source in a shared repository several times a day or more frequently.
 
-* **What is Fibonacci Sequence?** the Fibonacci sequence is a sequence in which each number is the sum of the two preceding ones.
+* **What is Fibonacci Sequence?** the Fibonacci sequence is a sequence in which each number is the sum of the two previous ones.
 
 * **What is Dynamic Programming?** A method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions.
 

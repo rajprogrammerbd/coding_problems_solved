@@ -17,3 +17,17 @@
 * **What is Dynamic Programming?** A method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions.
 
 * **What is Thread Pool in NodeJs?** The worker pool (aka thread pool) is an execution model that spawns and handles separate threads, which then synchronously perform the task and return the result to the event loop. The event loop then executes the provided callback with said result.
+
+* **How does the cluster module works in node js?** Node.js introduce the cluster module, which creates multiple copies of the same application on the same machine and has them running at the same time. It also comes with a load balancer that every distributes the load among the processes using the round-robin algorithm.
+
+* **How does the worker threads modules works in node js?** In node.js, worker threads come handy when doing large JavaScript task, Worker makes it simpler to run JavaScript coding in parallel using threads, making it considerably faster and more efficient. We can complete difficult jobs without disrupting the main thread.
+
+* **How does the child_process works in node js?** The node js child process module provides the ability to spawn child processes in a similar manner to popen.
+
+There are three major way to create child process:
+
+* child_process.exec()
+* child_process.spawn()
+* child_process.fork()
+
+> The child_process. spawn() method launches a new process with a given command. This method returns streams (stdout & stderr) and it is generally used when the process returns large amount of data.

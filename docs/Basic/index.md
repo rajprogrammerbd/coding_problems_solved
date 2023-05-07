@@ -31,3 +31,15 @@ There are three major way to create child process:
 * child_process.fork()
 
 > The child_process. spawn() method launches a new process with a given command. This method returns streams (stdout & stderr) and it is generally used when the process returns large amount of data.
+
+* **Examples of must-known concept of string:** Here we are providing you with some must-know concepts of string:
+
+> **Subsequence and substring** – A subsequence is a sequence that can be derived from a string deleting one or more elements. A substring is a contiguous segment of the string.
+
+> Reverse and rotation in a string – Reverse operation is interchanging the position of characters of a string such that the first becomes the last, the second becomes the second last, and so on.
+
+> **Binary String** – A binary string is a string made up of only two types of characters.
+
+> **Palindrome** – A palindrome string is a string in which the elements at the same distance from the center of the string are the same. Lexicographic pattern – Lexicographical pattern is the pattern based on the ASCII value or can be said in dictionary order.
+
+> **Pattern searching** – Pattern searching is searching a given pattern in the string. It is an advanced topic of string.

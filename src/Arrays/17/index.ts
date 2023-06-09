@@ -40,7 +40,3 @@ function matrix(N: number): number[][] {
 }
 
 export default matrix;
-
-const res = matrix(2);
-
-console.log(res);

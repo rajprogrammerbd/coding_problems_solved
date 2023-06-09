@@ -22,8 +22,4 @@ function chunk(array: number[], size: number): number[][] {
     return result;
 }
 
-const value = chunk([1, 2, 3, 4, 5], 2);
-
-console.log(value);
-
 export default chunk;

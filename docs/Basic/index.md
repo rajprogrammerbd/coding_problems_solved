@@ -43,3 +43,5 @@ There are three major way to create child process:
 > **Palindrome** – A palindrome string is a string in which the elements at the same distance from the center of the string are the same. Lexicographic pattern – Lexicographical pattern is the pattern based on the ASCII value or can be said in dictionary order.
 
 > **Pattern searching** – Pattern searching is searching a given pattern in the string. It is an advanced topic of string.
+
+> **What is runtime environment in node js?** – The Node.js runtime is the software stack responsible for installing your web service's code and its dependencies and running your service.

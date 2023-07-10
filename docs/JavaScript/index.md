@@ -90,11 +90,11 @@
 * Polymorphism
 ```
 
-* **What is Encapsulation in OOP?** Encapsulation is the process of making the data private so that it can't be accessed or modified out of the class or function. To acchived this, we could use the `private` or `protected` keyword in the class.
+* **What is Encapsulation in OOP?** Encapsulation is a fundamental concept in object-oriented programming (OOP) that involves bundling data and the methods that operate on that data within a single unit, known as a class. This concept helps to protect the data and methods from outside interference, as it restricts direct access to them.
 
 * **What is Abstraction in OOP?** Abstraction is about keeping the process simply by hidding unnecessary details from a user.
 
-* **What is Inheritance in OPP?** in JavaScript, it is possible to create an object that inherits the methods and properties of another object.
+* **What is Inheritance in OPP?** It is a mechanism where you can to derive a class from another class for a hierarchy of classes that share a set of attributes and methods. in JavaScript, it is possible to create an object that inherits the methods and properties of another object.
 
 * **What is Polymorphism?** In OOP, polymorphism can be implemented with inheritance. The methods of the child class will have the same name as those of the parent class. The child class method overrides the method inherited from the parent class, when called with the child class object. This kind of implementation is called method overriding.
 

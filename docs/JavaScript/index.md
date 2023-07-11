@@ -94,7 +94,7 @@
 
 * **What is Abstraction in OOP?** Abstraction is about keeping the process simply by hidding unnecessary details from a user.
 
-* **What is Inheritance in OPP?** It is a mechanism where you can to derive a class from another class for a hierarchy of classes that share a set of attributes and methods. in JavaScript, it is possible to create an object that inherits the methods and properties of another object.
+* **What is Inheritance in OOP?** It is a mechanism where you can to derive a class from another class for a hierarchy of classes that share a set of attributes and methods. in JavaScript, it is possible to create an object that inherits the methods and properties of another object.
 
 * **What is Polymorphism?** Polymorphism is one of the core concepts of object-oriented programming (OOP) and describes situations in which something occurs in several different forms. In OOP, polymorphism can be implemented with inheritance. The methods of the child class will have the same name as those of the parent class. The child class method overrides the method inherited from the parent class, when called with the child class object. This kind of implementation is called method overriding.
 

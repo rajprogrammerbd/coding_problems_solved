@@ -22,3 +22,5 @@ idle, prepare: only used internally.
 * **Are there any disadvantages of Node.js?** No technology comes without a few disadvantages. Node.js also has a few drawbacks. The main drawback is that Node.js responses can be greatly blocked if an intensive CPU computation is used.
 
 * **What is process.nextTick() function?** Every time the event loop takes a full trip, we call it a tick. When we pass a function to process.nextTick(), we instruct the engine to invoke this function at the end of the current operation, before the next event loop tick starts.
+
+* **Explain the child process module in Node.js** The child process module allows you to spawn child processes in Node.js. The child process module provides a way to create and control child processes. A child process is a separate instance of the Node.js process that runs concurrently with the parent process.

@@ -98,3 +98,22 @@
 
     console.log(object);
 })();
+
+(function () {
+    interface IProps {
+        productName: string;
+        productId: number;
+        productDescription: string;
+        value: number;
+    }
+
+    // What Omit does is just to select all other type expect the mentioned named as the second prop in it and create a custom type with it.
+    type IType = Omit<IProps, "value" | "productDescription">;
+
+    const object: IType = {
+        productName: "product 1",
+        productId: 1
+    }
+
+    console.log(object);
+})();

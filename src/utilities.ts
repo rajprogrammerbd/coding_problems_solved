@@ -117,3 +117,25 @@
 
     console.log(object);
 })();
+
+
+(function () {
+    interface IReturned {
+        firstName: string;
+        lastName: string;
+    }
+
+    function fullName(): IReturned {
+        return { firstName: "Raj", lastName: "Dutta" };
+    }
+
+    // The usecase of ReturnType to hold the return type of the function is being passed.
+    type IType = ReturnType<typeof fullName>;
+
+    const object: IType = {
+        firstName: 'Raj',
+        lastName: "Dutta"
+    }
+
+    console.log(object);
+})();

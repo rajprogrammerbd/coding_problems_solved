@@ -61,6 +61,7 @@
 
     // This will return an exception because this is the purpose of readonly utility function so the value can't be change
     // user.age = 26;
+    console.log(user)
 })();
 
 (function() {
@@ -77,4 +78,22 @@
     }
 
     console.log(details);
+})();
+
+
+(function () {
+    interface IProps {
+        name: string;
+        age: number;
+        isProgrammer: boolean;
+    }
+
+    type IType = Pick<IProps, "name" | "isProgrammer">;
+
+    const object: IType = {
+        name: "Raj Dutta",
+        isProgrammer: true
+    }
+
+    console.log(object);
 })();

@@ -6,3 +6,26 @@
     promiseReturnTextType = await Promise.resolve('hello world');
     console.log(promiseReturnTextType);
 })();
+
+
+(function() {
+    interface IAccepts {
+        name: string;
+        age: number;
+    }
+
+    // What partial do is to make all the property optional.
+    function getDetails(data: Partial<IAccepts>): string {
+        if (!data.age && !data.name) {
+            return 'Name and age is required';
+        } else if (!data.name) {
+            return `Name is required`;
+        } else if (!data.age) {
+            return 'Age is required';
+        }
+        return `My name is ${data.name} and age is ${data.age}`;
+    }
+
+    const value = getDetails({ name: 'Raj Dutta' });
+    console.log(value);
+})();

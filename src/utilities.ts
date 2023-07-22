@@ -71,6 +71,7 @@
 
     type Keys = "my_name" | "sister_name" | "mother_name";
 
+    // What record do is to take two value, as the first value, add the reference key name, and as second value, it takes the values type structure and create a type out of it.
     const details:  Record<Keys, IValues> = {
         my_name: { name: 'Raj Dutta' },
         sister_name: { name: 'sister name' },
@@ -87,7 +88,7 @@
         age: number;
         isProgrammer: boolean;
     }
-
+    // What pick do is only add as mentioned prop name and create a new type with it.
     type IType = Pick<IProps, "name" | "isProgrammer">;
 
     const object: IType = {

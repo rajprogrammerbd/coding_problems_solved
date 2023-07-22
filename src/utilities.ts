@@ -29,3 +29,20 @@
     const value = getDetails({ name: 'Raj Dutta' });
     console.log(value);
 })();
+
+
+(function() {
+    interface IAccepts {
+        name: string;
+        age: number;
+    }
+
+    // What Required do is to make all the property required.
+    function getDetails(data: Required<IAccepts>): string {
+
+        return `My name is ${data.name} and age is ${data.age}`;
+    }
+
+    const value = getDetails({ name: 'Raj Dutta', age: 26 });
+    console.log(value);
+})();

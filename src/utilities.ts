@@ -46,3 +46,19 @@
     const value = getDetails({ name: 'Raj Dutta', age: 26 });
     console.log(value);
 })();
+
+
+(function() {
+    interface SettingNonChangableType {
+        name: string;
+        age: number;
+    }
+
+    const user: Readonly<SettingNonChangableType> = {
+        name: 'Raj Dutta',
+        age: 26
+    }
+
+    // This will return an exception because this is the purpose of readonly utility function so the value can't be change
+    // user.age = 26;
+})();

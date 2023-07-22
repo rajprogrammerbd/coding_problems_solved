@@ -62,3 +62,19 @@
     // This will return an exception because this is the purpose of readonly utility function so the value can't be change
     // user.age = 26;
 })();
+
+(function() {
+    interface IValues {
+        name: string;
+    }
+
+    type Keys = "my_name" | "sister_name" | "mother_name";
+
+    const details:  Record<Keys, IValues> = {
+        my_name: { name: 'Raj Dutta' },
+        sister_name: { name: 'sister name' },
+        mother_name: { name: 'mother name' }
+    }
+
+    console.log(details);
+})();

@@ -38,10 +38,16 @@ There are three major way to create child process:
 
 > Reverse and rotation in a string – Reverse operation is interchanging the position of characters of a string such that the first becomes the last, the second becomes the second last, and so on.
 
-> **Binary String** – A binary string is a string made up of only two types of characters.
+**Binary String** – A binary string is a string made up of only two types of characters.
 
-> **Palindrome** – A palindrome string is a string in which the elements at the same distance from the center of the string are the same. Lexicographic pattern – Lexicographical pattern is the pattern based on the ASCII value or can be said in dictionary order.
+**Palindrome** – A palindrome string is a string in which the elements at the same distance from the center of the string are the same. Lexicographic pattern – Lexicographical pattern is the pattern based on the ASCII value or can be said in dictionary order.
 
-> **Pattern searching** – Pattern searching is searching a given pattern in the string. It is an advanced topic of string.
+**Pattern searching** – Pattern searching is searching a given pattern in the string. It is an advanced topic of string.
 
-> **What is runtime environment in node js?** – The Node.js runtime is the software stack responsible for installing your web service's code and its dependencies and running your service.
+**What is runtime environment in node js?** – The Node.js runtime is the software stack responsible for installing your web service's code and its dependencies and running your service.
+
+**What is Subarrays?** - In general, for an array of size n, there are n*(n+1)/2 non-empty subarrays. For example, Consider the array [1, 2, 3, 4], There are 10 non-empty sub-arrays. The subarrays are: (1), (2), (3), (4), (1,2), (2,3), (3,4), (1,2,3), (2,3,4), and (1,2,3,4).
+
+**What is Subsequences?** A subsequence is a sequence that can be derived from another sequence by removing zero or more elements, without changing the order of the remaining elements.
+
+**What is Subset?** If a Set has all its elements belonging to other sets, this set will be known as a subset of the other set.

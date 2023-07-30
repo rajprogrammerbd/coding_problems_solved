@@ -51,3 +51,5 @@ There are three major way to create child process:
 **What is Subsequences?** A subsequence is a sequence that can be derived from another sequence by removing zero or more elements, without changing the order of the remaining elements.
 
 **What is Subset?** If a Set has all its elements belonging to other sets, this set will be known as a subset of the other set.
+
+**Difference between thread pool and event loop in node js** When call stack is empty the event goes through the event queue and sends callback to the call stack. Thread Pool - The thread pool is composed of 4 threads which delegates operations that are too heavy for the event loop.

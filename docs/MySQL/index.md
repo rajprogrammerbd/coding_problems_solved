@@ -15,3 +15,5 @@
 > using **DISTINCT** keyword, we can retrive all data which are not repeatedly comes multiple time. for example, **SELECT DISTINCT state FROM customers**.
 
 > using **IN** operator, is a shorthand operator of **AND**, **OR** operator, for example, **SELECT * FROM customers WHERE state IN ("VA", "FL")**.
+
+> using **BETWEEN** operator helps us to get value between two values, for example, **SELECT * FROM customers WHERE points BETWEEN 1000 AND 3000**.

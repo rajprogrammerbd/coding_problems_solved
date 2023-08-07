@@ -9,3 +9,5 @@
 > use **ORDER BY row_name** to get data in order.
 
 > use **--** command to make a comment.
+
+> using **AS** keyword, we can define a return row name.

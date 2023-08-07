@@ -4,3 +4,8 @@
 
 > If we want to select from a column, then we have to use this syntax **SELECT * or names_of_rows FROM columns_name**, for example **SELECT * from customers**.
 
+> use **WHERE row_name = value** format to sort the list.
+
+> use **ORDER BY row_name** to get data in order.
+
+> use **--** command to make a comment.

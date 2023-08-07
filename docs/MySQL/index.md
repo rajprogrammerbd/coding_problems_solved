@@ -14,4 +14,4 @@
 
 > using **DISTINCT** keyword, we can retrive all data which are not repeatedly comes multiple time. for example, **SELECT DISTINCT state FROM customers**.
 
-> using **IN** operator, is a shorthand operator of **OR** operator, for example, **SELECT * FROM customers WHERE state IN ("VA", "FL")**.
+> using **IN** operator, is a shorthand operator of **AND**, **OR** operator, for example, **SELECT * FROM customers WHERE state IN ("VA", "FL")**.

@@ -11,3 +11,5 @@
 > use **--** command to make a comment.
 
 > using **AS** keyword, we can define a return row name.
+
+> using **DISTINCT** keyword, we can retrive all data which are not repeatedly comes multiple time. for example, **SELECT DISTINCT state FROM customers**.

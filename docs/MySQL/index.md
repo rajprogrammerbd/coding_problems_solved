@@ -17,3 +17,5 @@
 > using **IN** operator, is a shorthand operator of **AND**, **OR** operator, for example, **SELECT * FROM customers WHERE state IN ("VA", "FL")**.
 
 > using **BETWEEN** operator helps us to get value between two values, for example, **SELECT * FROM customers WHERE points BETWEEN 1000 AND 3000**.
+
+> using **IS NULL** operator is to get the value which accociated with null, for example, **SELECT * FROM Customers WHERE phone IS NULL**.

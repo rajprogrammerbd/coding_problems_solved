@@ -23,3 +23,14 @@
 > using **DESC** and **ASC** is to sort data in ascending and descending order.
 
 > using **LIMIT** for limit the retrival data. for example **SELECT * FROM customers LIMIT 6 3**
+
+> use of **INNER JOIN** examples are down below,
+
+```
+USE sql_store;
+
+SELECT o.product_id, name
+FROM order_items o
+JOIN products p
+	ON o.product_id = p.product_id
+```

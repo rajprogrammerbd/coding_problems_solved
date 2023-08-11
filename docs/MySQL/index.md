@@ -19,3 +19,5 @@
 > using **BETWEEN** operator helps us to get value between two values, for example, **SELECT * FROM customers WHERE points BETWEEN 1000 AND 3000**.
 
 > using **IS NULL** operator is to get the value which accociated with null, for example, **SELECT * FROM Customers WHERE phone IS NULL**.
+
+> using **DESC** and **ASC** is to sort data in ascending and descending order.

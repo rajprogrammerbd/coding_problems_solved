@@ -21,3 +21,5 @@
 > using **IS NULL** operator is to get the value which accociated with null, for example, **SELECT * FROM Customers WHERE phone IS NULL**.
 
 > using **DESC** and **ASC** is to sort data in ascending and descending order.
+
+> using **LIMIT** for limit the retrival data. for example **SELECT * FROM customers LIMIT 6 3**

@@ -12,4 +12,4 @@ COPY . /app
 RUN chown -c -R raj /app
 USER raj
 EXPOSE 3000
-ENTRYPOINT [ "yarn", "run", "test" ]
+ENTRYPOINT [ "yarn", "run", "start" ]

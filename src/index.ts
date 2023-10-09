@@ -1,7 +1,5 @@
-console.clear();
-import { cpus } from 'node:os';
-process.env.UV_THREADPOOL_SIZE = cpus.length.toString();
 require('dotenv').config();
+process.env.UV_THREADPOOL_SIZE = '4';
 import { runAllTests } from "./nodeModuleImplementation/child_process";
 
 

@@ -9,4 +9,3 @@ runAllTests()
     .then(testResult => console.log(testResult))
     .catch(er => console.error(er));
 
-console.log(process.env.UV_THREADPOOL_SIZE);

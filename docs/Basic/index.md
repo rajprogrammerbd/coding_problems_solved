@@ -53,3 +53,6 @@ There are three major way to create child process:
 **What is Subset?** If a Set has all its elements belonging to other sets, this set will be known as a subset of the other set.
 
 **Difference between thread pool and event loop in node js** When call stack is empty the event goes through the event queue and sends callback to the call stack. Thread Pool - The thread pool is composed of 4 threads which delegates operations that are too heavy for the event loop.
+
+**What is Asymptotic Notation?** Asymptotic Notation is used to describe the running time of an algorithm - how much time an algorithm takes with a given input, n. There are three different notations: big O, big Theta (Θ), and big Omega (Ω). big-Θ is used when the running time is the same for all cases, big-O for the worst
+case running time, and big-Ω for the best case running time.

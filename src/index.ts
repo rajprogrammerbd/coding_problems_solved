@@ -8,4 +8,3 @@ import { runAllTests } from "./nodeModuleImplementation/child_process";
 runAllTests()
     .then(testResult => console.log(testResult))
     .catch(er => console.error(er));
-

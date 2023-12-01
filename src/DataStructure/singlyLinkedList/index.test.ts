@@ -92,4 +92,44 @@ describe('SinglyLinkedListed', () => {
             expect(object.len()).toBe(2);
         });
     });
+
+    describe('circle test with linkedlist', () => {
+        it('should have a circle', () => {
+            const object = new SinglyLinkedListed();
+
+            const temp = object.push(1);
+            object.push(2, temp);
+
+            const head = object.getHead();
+            expect(head?.value).toBe(1);
+            expect(head?.next?.value).toBe(2);
+            expect(head?.next?.next?.value).toBe(1);
+        });
+
+        it('should detech a circle within a LinkedList', () => {
+            const object  = new SinglyLinkedListed();
+            const temp = object.push(0);
+
+            for (let i = 1; i <= 200; i++) {
+                if (i === 200) {
+                    object.push(i, temp);
+                } else object.push(i);
+            }
+
+            const hasCircle = object.hasCircle();
+
+            expect(hasCircle).toBeTruthy();
+        });
+
+        it('should not have a circle', () => {
+            const object = new SinglyLinkedListed();
+
+            for (let i = 0; i < 1000; i++) {
+                object.push(i);
+            }
+
+            const hasCircle = object.hasCircle();
+            expect(hasCircle).toBeFalsy();
+        });
+    });
 });

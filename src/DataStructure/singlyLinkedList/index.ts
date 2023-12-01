@@ -23,23 +23,29 @@ export default class SinglyLinkedListed {
         this.length = 0;
     }
 
-    push(val: number): void {
+    push(val: number, circle: Node | false = false): Node {
         const newNode = new Node(val);
+
+        if (circle) {
+            newNode.next = circle;
+        }
 
         if (this.length > 0) {
 
-            if (this.tail === null) return;
-
-            this.tail.next = newNode;
-            this.tail = newNode;
-            this.length++;
-
-            return;
+            if (this.tail !== null) {
+                this.tail.next = newNode;
+                this.tail = newNode;
+                this.length++;
+    
+                return newNode;
+            }
         }
 
         this.head = newNode;
         this.tail = newNode;
         this.length = 1;
+
+        return newNode;
     }
 
     pop(): void {
@@ -116,6 +122,38 @@ export default class SinglyLinkedListed {
                 }
             } else {
                 current = current.next;
+            }
+        }
+    }
+
+    hasCircle(): boolean {
+        if (this.length <= 0) return false;
+
+        let started: boolean = false;
+        let firstPointer: PROPERTIES_EXAMPLE = this.head;
+        let lastPointer: PROPERTIES_EXAMPLE = this.head;
+
+        while (true) {
+            if (firstPointer === null || lastPointer === null) {
+                return false;
+            }
+
+            if (firstPointer?.value === lastPointer?.value) {
+                if (!started) {
+                    started = true;
+
+                    if (lastPointer?.next === null || lastPointer?.next?.next === undefined) return false;
+
+                    firstPointer = firstPointer?.next;
+                    lastPointer = lastPointer?.next?.next;
+                } else {
+                    return true;
+                }
+            } else {
+                if (lastPointer?.next === null || lastPointer?.next?.next === undefined) return false;
+
+                firstPointer = firstPointer?.next;
+                lastPointer = lastPointer?.next?.next;
             }
         }
     }

@@ -157,4 +157,55 @@ export default class SinglyLinkedListed {
             }
         }
     }
+
+    remove(value: number): void {
+        if (this.length <= 0) return;
+
+        while (this.head !== null && this.head.value === value) {
+            const next = this.head.next;
+
+            if (next !== null) {
+                this.head = next;
+                this.length--;
+            } else {
+                this.head = null;
+                this.tail = null;
+                this.length = 0;
+                
+                return;
+            }
+        }
+
+        let current = this.head;
+        while (current) {
+            const preNext = current.next;
+
+            if (preNext !== null) {
+                if (preNext.value === value) {
+                    const postNext = preNext.next;
+
+                    current.next = postNext;
+                    this.length--;
+
+                    if (postNext === null) {
+                        this.tail = current;
+                        
+                        return;
+                    }
+                } else {
+                    current = current.next;
+                }
+            } else current = current.next;
+        }
+    }
+
+    getLoop(fn: (value: number) => void): void {
+        let current = this.head;
+
+        while (current) {
+            fn(current.value);
+
+            current = current.next;
+        }
+    }
 }

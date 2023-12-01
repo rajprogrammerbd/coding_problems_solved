@@ -132,4 +132,38 @@ describe('SinglyLinkedListed', () => {
             expect(hasCircle).toBeFalsy();
         });
     });
+
+    it('remove item value of 1 from the linkedList', () => {
+        const object = new SinglyLinkedListed();
+        const COMMON = 1;
+
+        object.push(COMMON);
+        object.push(2);
+        object.push(COMMON);
+        object.push(COMMON);
+        object.push(5);
+        object.push(COMMON);
+        object.push(6);
+        object.push(2);
+        object.push(3);
+
+        object.remove(COMMON);
+
+        object.getLoop((value) => {
+            console.log('values ', value);
+            expect(value).not.toBe(COMMON);
+        });
+    });
+
+    it('should make the list empty with remove method calling', () => {
+        const object = new SinglyLinkedListed();
+
+        object.push(1);
+        object.push(1);
+
+        object.remove(1);
+
+        expect(object.getHead()).toBeNull();
+        expect(object.getTail()).toBeNull();
+    });
 });

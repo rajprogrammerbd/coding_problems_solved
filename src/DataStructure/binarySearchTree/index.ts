@@ -65,6 +65,18 @@ class BSTree {
             return this.insertNode(root.right, newNode);
         }
     }
+
+    search(value: number, root = this.root): boolean {
+        if (root === null) return false;
+
+        if (root.value === value) {
+            return true;
+        } else if (root.value > value) {
+            return this.search(value, root.left);
+        } else {
+            return this.search(value, root.right);
+        }
+    }
 }
 
 const list = new BSTree();
@@ -86,4 +98,4 @@ list.insert(66);
 list.insert(90);
 list.insert(64);
 
-console.log(list);
+console.log(list.search(64));

@@ -87,6 +87,16 @@ class BSTree {
             return this.min(root.left);
         }
     }
+
+    max(root = this.root): number | false {
+        if (root === null) return false;
+
+        if (root.right) {
+            return this.max(root.right);
+        } else {
+            return root.value;
+        }
+    }
 }
 
 const list = new BSTree();
@@ -108,4 +118,4 @@ list.insert(66);
 list.insert(90);
 list.insert(64);
 
-console.log(list.min());
+console.log(list.max());

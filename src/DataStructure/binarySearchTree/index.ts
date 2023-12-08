@@ -186,6 +186,31 @@ class BSTree {
 
         return result;
     }
+
+    inOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number) => void = (value) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+        const result: number[] = [];
+        if (root === null) return result;
+
+        function traverse(rootNode: BSTNode) {
+            if (rootNode.left) traverse(rootNode.left);
+
+            if (returnType === "function") {
+                cb(rootNode.value);
+            } else {
+                result.push(rootNode.value);
+            }
+
+            if (rootNode.right) traverse(rootNode.right);
+        }
+
+        traverse(root);
+
+        if (returnType === "function") {
+            return;
+        }
+
+        return result;
+    }
 }
 
 const list = new BSTree();
@@ -215,4 +240,8 @@ list.breatheFirstSearch('function', (value: number) => {
 
 list.PreOrder('function', (value: number) => {
     console.log('DepthFirstSearch PreOrder ', value);
-})
+});
+
+list.inOrder("function", (value: number) => {
+    console.log('DepthFirstSearch InOrder ', value);
+});

@@ -97,6 +97,69 @@ class BSTree {
             return root.value;
         }
     }
+
+    delete(value: number): void {
+        this.root = this.deleteOne(this.root, value);
+    }
+
+    deleteOne(root: BSTClassType, value: number): BSTClassType {
+        if (root === null) {
+            return root;
+        }
+        
+        if (root.value > value) {
+            root.left = this.deleteOne(root.left, value);
+        } else if (root.value < value) {
+            root.right = this.deleteOne(root.right, value);
+        } else {
+            const left = root.left;
+            const right = root.right;
+
+            if (left === null && right === null) {
+                return null;
+            }
+
+            if (left === null) {
+                return root.right;
+            }
+
+            if (right === null) {
+                return root.left;
+            }
+
+            root.value = this.min(root.right) as number;
+            root.right = this.deleteOne(root.right, root.value);
+        }
+
+        return root;
+    }
+
+    breatheFirstSearch(returnType: "array" | "function" = "array", cb: (value: number) => void = (value) => {}, root = this.root): number[] | void {
+        const result: number[] = [];
+        if (root === null) return result;
+
+        const queue: BSTNode[] = [];
+
+        queue.push(root);
+
+        while (queue.length) {
+            const value: BSTNode = queue.shift() as BSTNode;
+            if (returnType === "function") {
+                cb(value.value);
+            } else {
+                result.push(value.value);
+            }
+
+            if (value.left) queue.push(value.left);
+            if (value.right) queue.push(value.right);
+        }
+
+        if (returnType === "function") {
+            return;
+        }
+
+        return result;
+    }
 }
 
 const list = new BSTree();
@@ -118,4 +181,8 @@ list.insert(66);
 list.insert(90);
 list.insert(64);
 
-console.log(list.max());
+list.delete(64);
+
+list.breatheFirstSearch('function', (value: number) => {
+    console.log('value', value);
+});

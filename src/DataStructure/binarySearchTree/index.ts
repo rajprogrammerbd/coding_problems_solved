@@ -1,8 +1,12 @@
 console.clear();
 
+type BST_NODE_VALUE_TYPE = number;
+type BST_TRAVERSE_RETURNED_TYPE = "array" | "function";
+type BST_TRAVERSE_RETURNED_VALUE_TYPE = BST_NODE_VALUE_TYPE[] | void;
 type BST_NODE_TYPE = BSTNode | null;
+type BSTClassType = null | BSTNode;
 class BSTNode {
-    public value: number;
+    public value: BST_NODE_VALUE_TYPE;
     public left: BST_NODE_TYPE;
     public right: BST_NODE_TYPE;
 
@@ -12,8 +16,6 @@ class BSTNode {
         this.right = null;
     }
 }
-
-type BSTClassType = null | BSTNode;
 
 class BSTree {
     public root: BSTClassType;
@@ -134,7 +136,7 @@ class BSTree {
         return root;
     }
 
-    breatheFirstSearch(returnType: "array" | "function" = "array", cb: (value: number) => void = (value) => {}, root = this.root): number[] | void {
+    breatheFirstSearch(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number) => void = (value) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
         const result: number[] = [];
         if (root === null) return result;
 
@@ -153,6 +155,30 @@ class BSTree {
             if (value.left) queue.push(value.left);
             if (value.right) queue.push(value.right);
         }
+
+        if (returnType === "function") {
+            return;
+        }
+
+        return result;
+    }
+
+    PreOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number) => void = (value) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+        const result: number[] = [];
+        if (root === null) return result;
+
+        function traverse(rootNode: BSTNode) {
+            if (returnType === "function") {
+                cb(rootNode.value);
+            } else {
+                result.push(rootNode.value);
+            }
+
+            if (rootNode.left) traverse(rootNode.left);
+            if (rootNode.right) traverse(rootNode.right);
+        }
+
+        traverse(root);
 
         if (returnType === "function") {
             return;
@@ -184,5 +210,9 @@ list.insert(64);
 list.delete(64);
 
 list.breatheFirstSearch('function', (value: number) => {
-    console.log('value', value);
+    console.log('breatheFirstSearch ', value);
 });
+
+list.PreOrder('function', (value: number) => {
+    console.log('DepthFirstSearch PreOrder ', value);
+})

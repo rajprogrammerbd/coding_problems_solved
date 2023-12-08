@@ -1,5 +1,3 @@
-console.clear();
-
 type BST_NODE_VALUE_TYPE = number;
 type BST_TRAVERSE_RETURNED_TYPE = "array" | "function";
 type BST_TRAVERSE_RETURNED_VALUE_TYPE = BST_NODE_VALUE_TYPE[] | void;
@@ -17,7 +15,7 @@ export class BSTNode {
     }
 }
 
-class BSTree {
+export default class BSTree {
     public root: BSTClassType;
 
     constructor () {
@@ -100,8 +98,10 @@ class BSTree {
         }
     }
 
-    delete(value: number): void {
-        this.root = this.deleteOne(this.root, value);
+    delete(...value: number[]): void {
+        for (let i = 0; i < value.length; i++) {
+            this.root = this.deleteOne(this.root, value[i]);
+        }
     }
 
     deleteOne(root: BSTClassType, value: number): BSTClassType {
@@ -136,18 +136,19 @@ class BSTree {
         return root;
     }
 
-    breatheFirstSearch(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number) => void = (value) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+    breatheFirstSearch(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
         const result: number[] = [];
         if (root === null) return result;
 
         const queue: BSTNode[] = [];
 
         queue.push(root);
+        let counted = 0;
 
         while (queue.length) {
             const value: BSTNode = queue.shift() as BSTNode;
             if (returnType === "function") {
-                cb(value.value);
+                cb(value.value, counted);
             } else {
                 result.push(value.value);
             }
@@ -163,13 +164,15 @@ class BSTree {
         return result;
     }
 
-    PreOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number) => void = (value) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+    PreOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
         const result: number[] = [];
         if (root === null) return result;
+        let counted = 0;
 
         function traverse(rootNode: BSTNode) {
             if (returnType === "function") {
-                cb(rootNode.value);
+                cb(rootNode.value, counted);
+                counted++;
             } else {
                 result.push(rootNode.value);
             }
@@ -187,15 +190,17 @@ class BSTree {
         return result;
     }
 
-    inOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number) => void = (value) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+    inOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
         const result: number[] = [];
         if (root === null) return result;
+        let counted = 0;
 
         function traverse(rootNode: BSTNode) {
             if (rootNode.left) traverse(rootNode.left);
 
             if (returnType === "function") {
-                cb(rootNode.value);
+                cb(rootNode.value, counted);
+                counted++;
             } else {
                 result.push(rootNode.value);
             }
@@ -212,16 +217,18 @@ class BSTree {
         return result;
     }
 
-    postOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number) => void = (value) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+    postOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
         const result: number[] = [];
         if (root === null) return result;
+        let counted = 0;
 
         function traverse(rootNode: BSTNode) {
             if (rootNode.left) traverse(rootNode.left);
             if (rootNode.right) traverse(rootNode.right);
 
             if (returnType === "function") {
-                cb(rootNode.value);
+                cb(rootNode.value, counted);
+                counted++;
             } else {
                 result.push(rootNode.value);
             }
@@ -236,40 +243,3 @@ class BSTree {
         return result;
     }
 }
-
-const list = new BSTree();
-
-list.insert(25);
-list.insert(15);
-list.insert(10);
-list.insert(22);
-list.insert(12);
-list.insert(18);
-list.insert(11);
-
-list.insert(50);
-list.insert(35);
-list.insert(70);
-list.insert(32);
-list.insert(44);
-list.insert(66);
-list.insert(90);
-list.insert(64);
-
-list.delete(64);
-
-list.breatheFirstSearch('function', (value: number) => {
-    console.log('breatheFirstSearch ', value);
-});
-
-list.PreOrder('function', (value: number) => {
-    console.log('DepthFirstSearch PreOrder ', value);
-});
-
-list.inOrder("function", (value: number) => {
-    console.log('DepthFirstSearch InOrder ', value);
-});
-
-list.postOrder("function", (value: number) => {
-    console.log('DepthFirstSearch PostOrder ', value);
-});

@@ -10,3 +10,13 @@ class BSTNode {
         this.right = null;
     }
 }
+
+type BSTClassType = null | BSTNode;
+
+class BSTree {
+    public root: BSTClassType;
+
+    constructor () {
+        this.root = null;
+    }
+}

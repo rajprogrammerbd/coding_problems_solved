@@ -5,7 +5,7 @@ type BST_TRAVERSE_RETURNED_TYPE = "array" | "function";
 type BST_TRAVERSE_RETURNED_VALUE_TYPE = BST_NODE_VALUE_TYPE[] | void;
 type BST_NODE_TYPE = BSTNode | null;
 type BSTClassType = null | BSTNode;
-class BSTNode {
+export class BSTNode {
     public value: BST_NODE_VALUE_TYPE;
     public left: BST_NODE_TYPE;
     public right: BST_NODE_TYPE;

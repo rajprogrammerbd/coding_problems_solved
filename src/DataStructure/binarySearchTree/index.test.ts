@@ -79,9 +79,8 @@ describe('Binary Search Tree', () => {
         it('multple values addition and use methods', () => {
             const list = new BSTree();
 
-            const arr = [25, 15, 10, 22, 12, 18, 11, 50, 35, 70, 32, 44, 66, 90, 64];
-            for (let i = 0; i < arr.length; i++) {
-                list.insert(arr[i]);
+            for (let i = 0; i < data.length; i++) {
+                list.insert(data[i]);
             }
 
             expect(list.root?.value).toBe(25);

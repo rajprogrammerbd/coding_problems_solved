@@ -1,163 +1,245 @@
-import Queue from "../../DataStructure/Queue";
-import mergeSort from "../../Algorithms/mergeSort";
+type BST_NODE_VALUE_TYPE = number;
+type BST_TRAVERSE_RETURNED_TYPE = "array" | "function";
+type BST_TRAVERSE_RETURNED_VALUE_TYPE = BST_NODE_VALUE_TYPE[] | void;
+type BST_NODE_TYPE = BSTNode | null;
+type BSTClassType = null | BSTNode;
+export class BSTNode {
+    public value: BST_NODE_VALUE_TYPE;
+    public left: BST_NODE_TYPE;
+    public right: BST_NODE_TYPE;
 
-export class Node {
-    public left: any;
-    public right: any;
-
-    constructor (public value: number) {
+    constructor (value: number) {
         this.value = value;
         this.left = null;
         this.right = null;
     }
 }
 
-export default class BST {
-    public root: any;
+export default class BSTree {
+    public root: BSTClassType;
 
     constructor () {
         this.root = null;
     }
 
-    push(val: number) {
-        const newNode = new Node(val);
-
-        if (this.root === null) {
-            this.root = newNode;
-            return this;
-        }
-
-        let current = this.root;
-        while (current) {
-
-            if (current.value === val) {
-                return null;
-            }
-
-            if ( current.value > val ) {
-                
-                if (current.left === null) {
-                    current.left = newNode;
-                    return newNode;
-                }
-
-                current = current.left;
-            } else {
-                if (current.right === null) {
-                    current.right = newNode;
-                    return newNode;
-                }
-
-                current = current.right;
-            }
-        }
+    isEmpty(): boolean {
+        return this.root === null;
     }
 
-    remove(val: number) {
-        if (this.root === null) {
+    insert(value: number): BSTNode | false {
+        const newNode = new BSTNode(value);
+
+        if (this.isEmpty()) {
+            this.root = newNode;
+            return newNode;
+        }
+
+        return this.insertNode(this.root, newNode);
+    }
+
+    private insertNode(root: BSTClassType, newNode: BSTNode): BSTNode | false {
+        if (root?.value === newNode.value) {
             return false;
         }
 
-        if (this.root.value === val) {
-            this.root = null;
-            return this;
-        }
+        if (root === null) return false;
 
-        let current = this.root;
-        while (current) {
-            if (current.value > val) {
-                if ( current?.left?.value === val ) {
-                    current.left = null;
-                    return this;
-                }
 
-                current = current.left;
-            } else {
-                if ( current?.right?.value === val ) {
-                    current.right = null;
-                    return this;
-                }
+        if (root.value > newNode.value) {
+            const left = root.left;
 
-                current = current.right;
+            if (left === null) {
+                root.left = newNode;
+                return newNode;
             }
+            
+            return this.insertNode(root.left, newNode);
+        } else {
+            const right = root.right;
+
+            if (right === null) {
+                root.right = newNode;
+                return newNode;
+            }
+
+            return this.insertNode(root.right, newNode);
         }
     }
 
-    breatheFirstSearch() {
-        if (this.root === null) return [];
+    search(value: number, root = this.root): boolean {
+        if (root === null) return false;
 
-        const result = [];
-        const queue = new Queue();
-        let last;
+        if (root.value === value) {
+            return true;
+        } else if (root.value > value) {
+            return this.search(value, root.left);
+        } else {
+            return this.search(value, root.right);
+        }
+    }
 
-        queue.push(this.root);
+    min(root: BSTClassType = this.root): number | false {
+        if (root === null) return false;
 
-        while (queue.allData().length) {
-            last = queue.pop();
+        if (root.left === null) {
+            return root.value;
+        } else {
+            return this.min(root.left);
+        }
+    }
 
-            result.push(last.value);
+    max(root = this.root): number | false {
+        if (root === null) return false;
 
-            if ( last.left !== null ) {
-                queue.push(last.left);
+        if (root.right) {
+            return this.max(root.right);
+        } else {
+            return root.value;
+        }
+    }
+
+    delete(...value: number[]): void {
+        for (let i = 0; i < value.length; i++) {
+            this.root = this.deleteOne(this.root, value[i]);
+        }
+    }
+
+    deleteOne(root: BSTClassType, value: number): BSTClassType {
+        if (root === null) {
+            return root;
+        }
+        
+        if (root.value > value) {
+            root.left = this.deleteOne(root.left, value);
+        } else if (root.value < value) {
+            root.right = this.deleteOne(root.right, value);
+        } else {
+            const left = root.left;
+            const right = root.right;
+
+            if (left === null && right === null) {
+                return null;
             }
 
-            if (last.right !== null) {
-                queue.push(last.right);
+            if (left === null) {
+                return root.right;
             }
+
+            if (right === null) {
+                return root.left;
+            }
+
+            root.value = this.min(root.right) as number;
+            root.right = this.deleteOne(root.right, root.value);
+        }
+
+        return root;
+    }
+
+    breatheFirstSearch(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+        const result: number[] = [];
+        if (root === null) return result;
+
+        const queue: BSTNode[] = [];
+
+        queue.push(root);
+        let counted = 0;
+
+        while (queue.length) {
+            const value: BSTNode = queue.shift() as BSTNode;
+            if (returnType === "function") {
+                cb(value.value, counted);
+            } else {
+                result.push(value.value);
+            }
+
+            if (value.left) queue.push(value.left);
+            if (value.right) queue.push(value.right);
+        }
+
+        if (returnType === "function") {
+            return;
         }
 
         return result;
     }
 
-    depthFirstSearchPreOrder(): number[] {
-        if (this.root === null) return [];
-        const data: number[] = [];
+    PreOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+        const result: number[] = [];
+        if (root === null) return result;
+        let counted = 0;
 
-        function traverse(ele: { value: number; left: any; right: any }) {
-            data.push(ele?.value);
+        function traverse(rootNode: BSTNode) {
+            if (returnType === "function") {
+                cb(rootNode.value, counted);
+                counted++;
+            } else {
+                result.push(rootNode.value);
+            }
 
-            if (ele?.left !== null) traverse(ele?.left);
-            if (ele?.right !== null) traverse(ele?.right); 
+            if (rootNode.left) traverse(rootNode.left);
+            if (rootNode.right) traverse(rootNode.right);
         }
 
-        traverse(this.root);
-        return data;
+        traverse(root);
+
+        if (returnType === "function") {
+            return;
+        }
+
+        return result;
     }
 
-    depthFirstSearchInOrder(): number[] {
-        if (this.root === null) {
-            return [];
+    inOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+        const result: number[] = [];
+        if (root === null) return result;
+        let counted = 0;
+
+        function traverse(rootNode: BSTNode) {
+            if (rootNode.left) traverse(rootNode.left);
+
+            if (returnType === "function") {
+                cb(rootNode.value, counted);
+                counted++;
+            } else {
+                result.push(rootNode.value);
+            }
+
+            if (rootNode.right) traverse(rootNode.right);
         }
 
-        const data: number[] = [];
+        traverse(root);
 
-        function traverse(node: { value: number; left: any; right: any }) {
-            if (node?.left !== null) traverse(node?.left);
-            data.push(node?.value);
-            if (node?.right) traverse(node?.right);
+        if (returnType === "function") {
+            return;
         }
 
-        traverse(this.root);
-
-        return data;
+        return result;
     }
 
-    depthFirstSearchPostOrder(): number[] {
-        if (this.root === null) {
-            return [];
+    postOrder(returnType: BST_TRAVERSE_RETURNED_TYPE = "array", cb: (value: number, counted: number) => void = (value, counted) => {}, root = this.root): BST_TRAVERSE_RETURNED_VALUE_TYPE {
+        const result: number[] = [];
+        if (root === null) return result;
+        let counted = 0;
+
+        function traverse(rootNode: BSTNode) {
+            if (rootNode.left) traverse(rootNode.left);
+            if (rootNode.right) traverse(rootNode.right);
+
+            if (returnType === "function") {
+                cb(rootNode.value, counted);
+                counted++;
+            } else {
+                result.push(rootNode.value);
+            }
         }
 
-        const data: number[] = [];
+        traverse(root);
 
-        function traverse(node: { value: number; left: any; right: any }) {
-            if (node?.left) traverse(node?.left);
-            if (node?.right) traverse(node?.right);
-
-            data.push(node?.value);
+        if (returnType === "function") {
+            return;
         }
 
-        traverse(this.root);
-
-        return data;
+        return result;
     }
 }

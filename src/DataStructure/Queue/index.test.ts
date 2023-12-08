@@ -1,5 +1,5 @@
 import Queue from ".";
-import { Node } from '../binarySearchTree/index';
+import { BSTNode as Node } from '../binarySearchTree/index';
 
 describe('Queue', () => {
     it('should return empty queue', () => {

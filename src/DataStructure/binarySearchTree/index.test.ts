@@ -1,108 +1,145 @@
-import BST from ".";
+import BSTree from './';
+
+const data = [25, 15, 10, 22, 12, 18, 11, 50, 35, 70, 32, 44, 66, 90, 64];
+type TRAVERSAL_TYPE = "BSF" | "INORDER" | "PREORDER" | "POSTORDER";
+
+function traversal(type: TRAVERSAL_TYPE, result: number[]) {
+    type RETURNED_TYPE = "breatheFirstSearch" | "inOrder" | "postOrder" | "PreOrder";
+    function named(type: TRAVERSAL_TYPE): RETURNED_TYPE {
+        switch (type) {
+            case "BSF":
+                return "breatheFirstSearch";
+            case "INORDER":
+                return "inOrder";
+            case "POSTORDER":
+                return "postOrder";
+            default:
+                return "PreOrder";
+        }
+    }
+
+    let fnCalledName: RETURNED_TYPE;
+    fnCalledName = named(type);
+
+    it(fnCalledName, () => {
+        const list = new BSTree();
+
+        for (let i = 0; i < data.length; i++) {
+            list.insert(data[i]);
+        }
+
+        const searchValue = list[fnCalledName]("array") as number[];
+
+        expect(searchValue.length).toBe(result.length);
+        for (let i = 0; i < result.length; i++) {
+            expect(searchValue[i]).toBe(result[i]);
+        }
+
+        list[fnCalledName]("array", (value: number, i: number) => {
+            expect(value).toBe(result[i]);
+        });
+    });
+}
 
 describe('Binary Search Tree', () => {
-    it('this.root should be null', () => {
-        const bst = new BST();
+    describe('Insertion and searching', () => {
+        it('initial of binary search', () => {
+            const list = new BSTree();
 
-        expect(bst).toEqual({ root: null });
+            expect(list.isEmpty()).toBeTruthy();
+            expect(list.root).toBeNull();
+        });
+
+        it('add a root node', () => {
+            const list = new BSTree();
+
+            // add a number
+            const number = 1;
+            list.insert(number);
+
+            expect(list.root?.value).toBe(1);
+            expect(list.root?.left).toBeNull();
+            expect(list.root?.right).toBeNull();
+        });
+
+        it('add two nodes', () => {
+            const list = new BSTree();
+
+            const nums = [10, 15];
+            for (let i = 0; i < nums.length; i++) {
+                list.insert(nums[i]);
+            }
+
+            expect(list.root?.value).toBe(nums[0]);
+            expect(list.root?.left).toBeNull();
+            expect(list.root?.right).not.toBeNull();
+            expect(list.root?.right?.value).toBe(nums[1]);
+        });
+
+        it('multple values addition and use methods', () => {
+            const list = new BSTree();
+
+            for (let i = 0; i < data.length; i++) {
+                list.insert(data[i]);
+            }
+
+            expect(list.root?.value).toBe(25);
+            expect(list.min()).toBe(10);
+            expect(list.max()).toBe(90);
+        });
+
+        it('search the values', () => {
+            const list = new BSTree();
+
+            for (let i = 0; i < data.length; i++) {
+                list.insert(data[i]);
+            }
+
+            expect(list.search(100)).not.toBeTruthy();
+            expect(list.search(18)).toBeTruthy();
+        });
     });
 
-    it('should have only the root Node', () => {
-        const bst = new BST();
+    describe('deletion and traversing', () => {
+        describe('deletion', () => {
+            it('should delete first root', () => {
+                const list = new BSTree();
 
-        bst.push(1);
+                const num = 1;
+                list.insert(num);
+                list.delete(num);
 
-        expect(bst).toEqual({ root: { value: 1, left: null, right: null } });
-    });
+                expect(list.root).toBeNull();
+            });
 
-    it('add node to the left', () => {
-        const bst = new BST();
+            it('should delete multiple from right and left side', () => {
+                const list = new BSTree();
 
-        bst.push(5);
-        bst.push(4);
-        bst.push(3);
+                for (let i = 0; i < data.length; i++) {
+                    list.insert(data[i]);
+                }
 
-        expect(bst).toEqual({ root: { value: 5, left: { value: 4, left: { value: 3, left: null, right: null }, right: null }, right: null } });
-    });
+                const deletedItems = [25, 15, 10, 22, 12]
 
-    it('add node to the right', () => {
-        const bst = new BST();
+                list.delete(...deletedItems);
 
-        bst.push(5);
-        bst.push(6);
-        bst.push(7);
+                for (let i = 0; i < deletedItems.length; i++) {
+                    expect(list.search(deletedItems[i])).toBeFalsy();
+                }
+            });
+        });
 
-        expect(bst).toEqual({ root: { value: 5, left: null, right: { value: 6, left: null, right: { value: 7, left: null, right: null } } } });
-    });
+        describe('traversal', () => {
+            const values: { name: TRAVERSAL_TYPE, items: number[] }[] = [
+                { name: "BSF", items: [25, 15, 50, 10, 22, 35, 70, 12, 18, 32, 44, 66, 90, 11, 64] },
+                { name: "PREORDER", items: [25, 15, 10, 12, 11, 22, 18, 50, 35, 32, 44, 70, 66, 64, 90] },
+                { name: "INORDER", items: [10, 11, 12, 15, 18, 22, 25, 32, 35, 44, 50, 64, 66, 70, 90] },
+                { name: "POSTORDER", items: [11, 12, 10, 18, 22, 15, 32, 44, 35, 64, 66, 90, 70, 50, 25 ] }
+            ];
 
-    it('should return null', () => {
-        const bst = new BST();
-
-        bst.push(5);
-        
-        expect(bst.push(5)).toBeNull();
-    });
-
-    it('remove should be falsy as return', () => {
-        const bst = new BST();
-
-        expect(bst.remove(1)).toBeFalsy();
-    });
-
-    it('remove should set the root as null', () => {
-        const bst = new BST();
-
-        bst.push(1);
-
-        expect(bst.remove(1)).toEqual({ root: null });
-    });
-
-    it('remove node to the left', () => {
-        const bst = new BST();
-
-        bst.push(5);
-        bst.push(4);
-        bst.push(3);
-
-        expect(bst.remove(3)).toEqual({ root: { value: 5, left: { value: 4, left: null, right: null }, right: null } });
-    });
-
-    it('remove node to the right', () => {
-        const bst = new BST();
-
-        bst.push(5);
-        bst.push(6);
-        bst.push(7);
-
-        expect(bst.remove(7)).toEqual({ root: { value: 5, left: null, right: { value: 6, left: null, right: null } } });
-    });
-
-    it('should return the empty array', () => {
-        const bst = new BST();
-
-        expect(bst.breatheFirstSearch()).toEqual([]);
-        expect(bst.depthFirstSearchPreOrder()).toEqual([]);
-        expect(bst.depthFirstSearchInOrder()).toEqual([]);
-        expect(bst.depthFirstSearchPostOrder()).toEqual([]);
-    });
-
-    it('should return the [123456789]', () => {
-        const bst = new BST();
-
-        bst.push(5);
-        bst.push(4);
-        bst.push(3);
-        bst.push(2);
-        bst.push(1);
-
-        bst.push(6);
-        bst.push(7);
-        bst.push(8);
-        bst.push(9);
-
-        expect(bst.breatheFirstSearch()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
-        expect(bst.depthFirstSearchPreOrder()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
-        expect(bst.depthFirstSearchPostOrder()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
-        expect(bst.depthFirstSearchInOrder()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+            for (let i = 0; i < values.length; i++) {
+                traversal(values[i].name, values[i].items);
+            }
+        });
     });
 });

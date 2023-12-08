@@ -77,6 +77,16 @@ class BSTree {
             return this.search(value, root.right);
         }
     }
+
+    min(root: BSTClassType = this.root): number | false {
+        if (root === null) return false;
+
+        if (root.left === null) {
+            return root.value;
+        } else {
+            return this.min(root.left);
+        }
+    }
 }
 
 const list = new BSTree();
@@ -98,4 +108,4 @@ list.insert(66);
 list.insert(90);
 list.insert(64);
 
-console.log(list.search(64));
+console.log(list.min());

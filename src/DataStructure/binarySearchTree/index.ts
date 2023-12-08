@@ -19,4 +19,8 @@ class BSTree {
     constructor () {
         this.root = null;
     }
+
+    isEmpty() {
+        return this.root === null;
+    }
 }

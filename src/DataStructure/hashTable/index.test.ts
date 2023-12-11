@@ -1,25 +1,63 @@
-import HashMap from ".";
+import HashMapObject, { LinkedList } from ".";
 
-describe('HashMap', () => {
-    it('should have empty value', () => {
-        const hash = new HashMap();
+describe('HashMapObject', () => {
+    it('should create empty hashMap', () => {
+        const map = new HashMapObject();
 
-        expect(hash.keyMap).toEqual([]);
+        expect(map.keys().length).toBe(0);
     });
 
-    it('should have hash the key and store the value', () => {
-        const value = new HashMap();
+    it('should add a value', () => {
+        const map = new HashMapObject();
+        const list = new LinkedList();
 
-        const obj = {
-            key: 'name',
-            value: 'demo'
-        };
+        list.push({ name: 'Student 01', roll: 1 });
 
-        value.set(obj.key, obj.value);
+        map.set('CLASS_01', list);
 
-        expect(value.get('unknown')).toBeUndefined();
-        expect(value.get(obj.key)).toBe(obj.value);
-        expect(value.keys()).toEqual(expect.arrayContaining([obj.key]));
-        expect(value.values()).toEqual(expect.arrayContaining([obj.value]));
+        expect(map.keys()[0]).toBe('CLASS_01');
+    });
+
+    it('should not add dual value', () => {
+        const map = new HashMapObject();
+        const list = new LinkedList();
+        const anotherList = new LinkedList();
+
+        list.push({ name: 'Student 01', roll: 1 });
+        list.push({ name: 'Student 02', roll: 2 });
+
+        map.set('CLASS_01', list);
+        map.set('CLASS_01', anotherList);
+
+        expect(map.keys().length).toBe(1);
+    });
+
+    it('should add new class Value', () => {
+        const map = new HashMapObject();
+        const list1 = new LinkedList();
+        const list2 = new LinkedList();
+
+        const keys = ['CLASS_01', 'CLASS_02'];
+
+        map.set('CLASS_01', list1);
+        map.set('CLASS_02', list2);
+
+        expect(map.keys().length).toBe(keys.length);
+        expect(map.keys()).toEqual(expect.arrayContaining(keys));
+    });
+
+    it('should return false', () => {
+        const map = new HashMapObject();
+
+        expect(map.get('CLASS_01')).toBeFalsy();
+    });
+
+    it('should return true', () => {
+        const map = new HashMapObject();
+        const list = new LinkedList();
+
+        map.set('CLASS_01', list);
+
+        expect(map.get('CLASS_01')).toBeTruthy();
     });
 });

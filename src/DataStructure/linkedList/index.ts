@@ -70,7 +70,7 @@ class SinglyLinkedList<T extends number> {
         this.length = 0;
     }
 
-    push(val: T, connectedNode?: Node<T> | undefined): Node<T> | null {
+    push(val: T, connectedNode?: Node<T> | undefined): Node<T> {
         const newNode = new Node<T>(val);
 
         if (!this.length) {
@@ -81,9 +81,7 @@ class SinglyLinkedList<T extends number> {
             return newNode;
         }
 
-        if (this.tail == null) return null;
-
-        this.tail.next = newNode;
+        this.tail!.next = newNode;
         this.tail = newNode;
         this.length++;
 

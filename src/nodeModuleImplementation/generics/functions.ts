@@ -47,3 +47,20 @@ let funcIdentity5: IFuncIdentity3<string> = function<T>(arg: T): number {
     return 10;
 }
 
+interface IProps {
+    length: number;
+}
+
+func = function<K extends IProps>(arr: K): K {
+    return arr;
+}
+
+
+func = function<Type, Key extends keyof Type>(obj: Type, key: Key): Type[Key] {
+    return obj[key];
+}
+
+const object1 = { a: true, b: true };
+
+func(object1, 'a');
+func(object1, 'b');

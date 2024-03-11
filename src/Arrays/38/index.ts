@@ -14,27 +14,26 @@ const sort = (arr: IProp, single: Single): IProp => {
 }
 
 function insertInterval(arr: IProp, single: Single): IProp {
-    const sortedIntervals = sort(arr, single);
-    
-    const mergedIntervals = [];
-    let currentInterval = sortedIntervals[0];
-    
-    for (let i = 1; i < sortedIntervals.length; i++) {
-        const nextInterval = sortedIntervals[i];
-        
-        if (currentInterval[1] >= nextInterval[0]) {
-            // Overlapping intervals, merge them
-            currentInterval[1] = Math.max(currentInterval[1], nextInterval[1]);
+    const sortedArr = sort(arr, single), result = [];
+
+    let current = sortedArr[0];
+    for (let i = 1; i < sortedArr.length; i++) {
+        if (current[1] >= sortedArr[i][0]) {
+            const min = current[0], max = Math.max(current[1], sortedArr[i][1]);
+
+            const element: [number, number] = [min, max];
+            
+            current = element;
         } else {
-            // Non-overlapping intervals, add currentInterval to result
-            mergedIntervals.push(currentInterval);
-            currentInterval = nextInterval;
+            result.push(current);
+
+            current = sortedArr[i];
         }
     }
-    
-    mergedIntervals.push(currentInterval);
-    
-    return mergedIntervals;
+
+    result.push(current);
+
+    return result;
 }
 
 export default insertInterval;

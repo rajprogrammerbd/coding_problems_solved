@@ -1,5 +1,3 @@
-console.clear();
-
 class Nodes<T> {
     public value: T;
     public next: Nodes<T> | null;

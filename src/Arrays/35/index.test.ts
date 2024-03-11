@@ -32,7 +32,23 @@ describe("SinglyedLinkedList", () => {
         }
 
         list.remove(0);
+        list.remove(20);
 
         expect(list.head?.value).not.toBe(0);
+    });
+
+    it('should not have a circle', () => {
+        const list = new SinglyedLinkedList();
+
+        expect(list.hasCircle).toBeFalsy();
+    });
+
+    it('should have return an array', () => {
+        const list = new SinglyedLinkedList();
+
+        list.insert(1);
+        list.insert(2);
+
+        expect(list.items).toEqual(expect.arrayContaining([1, 2]));
     });
 });

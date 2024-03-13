@@ -26,6 +26,4 @@ function conflictingAppointments(arr: IProp): boolean {
     return true;
 }
 
-const result = conflictingAppointments([[6,7], [2,4], [8,12]]);
-
 export default conflictingAppointments;

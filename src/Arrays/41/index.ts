@@ -39,6 +39,4 @@ function minimumMeetingRooms(arr: IProp): SingleValueType {
     return totalNum;
 }
 
-const result = minimumMeetingRooms([[4,5], [2,3], [2,4], [3,5]]);
-console.log(result);
 export default minimumMeetingRooms;

@@ -150,7 +150,6 @@ describe('SinglyLinkedListed', () => {
         object.remove(COMMON);
 
         object.getLoop((value) => {
-            console.log('values ', value);
             expect(value).not.toBe(COMMON);
         });
     });

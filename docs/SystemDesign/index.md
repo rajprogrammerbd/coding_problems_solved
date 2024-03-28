@@ -41,3 +41,12 @@ How to retrieve data quickly
 * *hot and cold stroage*
 * *polyglot persistence*
 * *distributed cache*
+
+* **What is abstraction?**
+Abstraction is the art of obfuscating details that we don't need. It allows us to concentrate on the big picture.
+
+* **What is Transactions in database?**
+A transactions in the context of a database is like a unit of work. Imagine it as a single task or a set of related actions that we perform on a database. For example, Read, Write, Commit etc.
+
+* **What is database abstraction?**
+Transactions is a database abstraction that hides many problematic outcomes when concurrent users are reading, writing, or mutating the data and gives a simple interface of commit, in case of success, or abort, in case of failure.

@@ -59,3 +59,6 @@ RPC is an interprocess communication protocol that's widely used in distributed 
 <br />
 <br />
 RPC mechanisms are employed when a computer program causes a procedure or subroutine to execute in a separate address space.
+
+* **What is the consistency model in distributed system?**
+A consistency model in distributed system is like a set of rules that govern how different parts of the system communicate with each other. It decides how the system behaves when there are changes or error.

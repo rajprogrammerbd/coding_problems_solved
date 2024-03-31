@@ -36,3 +36,9 @@ class Persons {
 }
 
 type IConstractorParameters = ConstructorParameters<typeof Persons>;
+
+function myFunc(): number {
+    return 0;
+}
+
+type IReturnType = ReturnType<typeof myFunc>;

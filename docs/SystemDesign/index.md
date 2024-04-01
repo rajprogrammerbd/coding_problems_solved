@@ -65,11 +65,11 @@ A consistency model in distributed system is like a set of rules that govern how
 
 * **Different types of failure**
 
-> Fail-stop
+> Fail-stop failure
 
 In this type of failure, a node in the distributed system halts permanently. However, the other nodes can still detect that node by communicating with it.
 
-> Crash
+> Crash failure
 
 In this type of failure, a node in the distributed system halts silently, and the other nodes can't detect that the node has stopped working.
 
@@ -84,3 +84,9 @@ In temporal failures, the node generates correct result, but is too late to be u
 > Byzantine failures
 
 In Byzantine failures, the node exhibits random behavior like transmitting arbitary messages at arbitrary times, producing wrong result, or stopping midway. This mostly happens due to an attack by a malicious entity or a software bug. A byzantine failure is the most challenging type of failure to deal with.
+
+* **What is Availability?** Availability is the percentage of time that some service or infrastructure is accessible to clients and is operated upon under normal condition.
+
+```
+formula = ((total time - the amount of time service was down) / total time) * 100;
+```

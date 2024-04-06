@@ -17,6 +17,8 @@ jobs:
         run: yarn install
       - name: Test and coverage
         run: yarn run test
+      - name: list all the files and folders
+        run: ls
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

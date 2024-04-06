@@ -88,5 +88,5 @@ In Byzantine failures, the node exhibits random behavior like transmitting arbit
 * **What is Availability?** Availability is the percentage of time that some service or infrastructure is accessible to clients and is operated upon under normal condition.
 
 ```
-formula = ((total time - the amount of time service was down) / total time) * 100;
+formula (A) = ((total time - the amount of time service was down) / total time) * 100;
 ```

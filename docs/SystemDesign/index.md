@@ -57,6 +57,7 @@ Interprocess communication (IPC) refers to the machanisms provided by an operati
 * **What is an RPC(Remote Procedure calls)?**
 RPC is an interprocess communication protocol that's widely used in distributed system.
 <br />
+
 <br />
 RPC mechanisms are employed when a computer program causes a procedure or subroutine to execute in a separate address space.
 
@@ -87,6 +88,45 @@ In Byzantine failures, the node exhibits random behavior like transmitting arbit
 
 * **What is Availability?** Availability is the percentage of time that some service or infrastructure is accessible to clients and is operated upon under normal condition.
 
-```
+```(text)
 formula (A) = ((total time - the amount of time service was down) / total time) * 100;
 ```
+
+* **What is Reliability?** Reliability, ```R``` is the probability that time service will perform it's function for a specified time. ```R``` measures how the service performs under varying operating conditions.
+
+We often use `mean time between failures (MTBF)` and `mean time to repair (MTTR)` as metrics to measure ```R```.
+
+```(text)
+MTBF = (Total Elapsed Time - Sum of Downtime) / Total Number of Failures
+
+MTTR = Total Maintenance Time / Total Number of Repairs
+```
+
+(We strive for a higher MTBF value and a lower MTTR value.)
+
+* **What is scalability?** Scalability is the ability of a system to handle an increasing amount of workload without compromising performance.
+
+The workload can be of different types, including the following:
+
+> **Request workload** This is the number of requests served by the system.
+
+> **Data/storage workload:** This is the amount of data stored by the system.
+
+Here are the different dimensions of scalability:
+
+**Size Scalability:** A system is scalable in size if we can simply add additional users and resources to it.
+
+**Administrative scalability** This is the capacity for a growing number of organizations or users to share a single distributed system with ease.
+
+**Geographical Scalability** This relates to how easily the program can cater to other regions while maintaining acceptable perfomance constraints. In other words, the system can readily service a broad geographical region, as well as a smaller one.
+
+
+Different approaches of scalability
+
+**Vertical scalability - scaling up**
+
+Vertical scaling, also known as "scaling up" refers to scaling by providing additional capabilities (for example, additional CPUs or RAM) to an existing device. Vertical scaling allows us to expand our present hardware or software capacity, but we can only grow it to the limitations of our server. The dollar cost of vertical scaling is usually high because we might need exotic components to scale up.
+
+**Horizontal Scalability - scaling out**
+
+Horizontal scaling, also known as “scaling out,” refers to increasing the number of machines in the network. We use commodity nodes for this purpose because of their attractive dollar-cost benefits. The catch here is that we need to build a system such that many nodes could collectively work as if we had a single, huge server.

@@ -8,6 +8,8 @@ RUN cd app
 WORKDIR /app
 COPY *package*json /app
 RUN yarn install
+ENV CHOKIDAR_USEPOLLING = true
+ENV WATCHPACK_POLLING = true
 COPY . /app
 RUN chown -c -R raj /app
 USER raj

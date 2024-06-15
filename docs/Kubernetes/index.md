@@ -25,3 +25,5 @@ and it has contains of,
 * **What is Scheduler?** It watches for new workloads/pods and assigns them to a node based on several scheduling factors which are mostly stand upon condition like, healthy?, Enough Resources?, Port Availablity?, Affinity and Anti Affinity Rules, etc.
 
 * **What is Controller Manager?** It's like Controller of the Controllers. It uses for various purpose like node controllers. What it basically does is, it watches the API server for changes, the desired state and current state.
+
+* **What is Cloud Controller Manager?** It's responsible for intracting with underlying cloud provider. ex, Load Balancers, Storage, Instances.

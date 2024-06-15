@@ -37,3 +37,5 @@ and it has contains of,
 * **What is Kublet?** It's the main agent that runs on every node. Receives Pod definations from API server. Intracts with container runtime to run the containers associated with the pod. Reports Node and Pod state to master.
 
 * **What is Container Runtime?** It's basically pulling images from registry like docker hub and other, It's responsible for starting the containers and stopping the containers.
+
+* **What is Kube Proxy?** In general, if two pods wants to talk to each other then kube proxy doing that, if a client send a request to a cluster, kube proxy handling all of that.

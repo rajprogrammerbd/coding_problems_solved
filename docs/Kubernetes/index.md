@@ -6,4 +6,14 @@
 
 * **What is cluster in general?** In general Cluster is a set of nodes (VM (Virtual Machine) or Physical Hardware), In addition those are deployed into different platform like AWS, Azure, GCP etc.
 
-In kubernetes, it consist of Master Node, Worker Node.
+> In kubernetes, it consist of Master Node, Worker Node.
+
+In the master node, we have something called ```Control Panel```
+
+and it has contains of,
+
+1. API Server
+2. Scheduler
+3. Cluster Store
+4. Controller Manager
+5. Cloud Controller Manager

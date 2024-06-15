@@ -27,3 +27,9 @@ and it has contains of,
 * **What is Controller Manager?** It's like Controller of the Controllers. It uses for various purpose like node controllers. What it basically does is, it watches the API server for changes, the desired state and current state.
 
 * **What is Cloud Controller Manager?** It's responsible for intracting with underlying cloud provider. ex, Load Balancers, Storage, Instances.
+
+* **What is Worker Node?** It's VM or Physical Machine running linux. Providers running environment for your application. We have multiples pod inside of it. Consider those pod as docker container in the docker world. We should consider deploying microservices. We have 3 main components of Worker Node,
+
+1. Kublet
+2. Container Runtime
+3. Kube Proxy

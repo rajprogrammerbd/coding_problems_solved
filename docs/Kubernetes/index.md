@@ -21,3 +21,5 @@ and it has contains of,
 * **What is API Server?** It's frontend to the kubernetes control panel. All the communication go through API server External and Internal. Expose RESTFull API on port 443.
 
 * **What is Cluster Store?** It's a store for all in the kubernetes and it's the single source of truth. It uses something called ```etcd``` which is a distributed key value data store.
+
+* **What is Scheduler?** It watches for new workloads/pods and assigns them to a node based on several scheduling factors which are mostly stand upon condition like, healthy?, Enough Resources?, Port Availablity?, Affinity and Anti Affinity Rules, etc.

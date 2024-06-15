@@ -33,3 +33,5 @@ and it has contains of,
 1. Kublet
 2. Container Runtime
 3. Kube Proxy
+
+* **What is Kublet?** It's the main agent that runs on every node. Receives Pod definations from API server. Intracts with container runtime to run the containers associated with the pod. Reports Node and Pod state to master.

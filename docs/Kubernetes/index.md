@@ -17,3 +17,5 @@ and it has contains of,
 3. Cluster Store
 4. Controller Manager
 5. Cloud Controller Manager
+
+* **What is API Server?** It's frontend to the kubernetes control panel. All the communication go through API server External and Internal. Expose RESTFull API on port 443.

@@ -45,3 +45,5 @@ FROM products p
 JOIN order_items oi
  USING (product_id);
 ```
+
+> using the ***UNION*** clause, we can join two select statement in mysql but there is one condition, we need to get the same number of columns from both of the statements.

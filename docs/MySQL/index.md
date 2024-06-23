@@ -32,5 +32,16 @@ USE sql_store;
 SELECT o.product_id, name
 FROM order_items o
 JOIN products p
-	ON o.product_id = p.product_id
+ ON o.product_id = p.product_id
+```
+
+> use of ***USING*** cause can happen when two tables has the same name of match with, the above example is where we can use ***USING** clause. for ex
+
+```
+USE sql_store;
+
+SELECT *
+FROM products p
+JOIN order_items oi
+ USING (product_id);
 ```

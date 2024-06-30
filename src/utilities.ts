@@ -42,3 +42,68 @@ function myFunc(): number {
 }
 
 type IReturnType = ReturnType<typeof myFunc>;
+
+type IObject = {
+    name?: string;
+    age: number;
+}
+
+type IOptionalObjectType = Partial<IObject>;
+type IOptionalObjectRequired = Required<IObject>;
+
+const obj: IOptionalObjectType = {
+    name: 'Raj Dutta'
+}
+
+const obj0: IOptionalObjectRequired = {
+    age: 27,
+    name: "Raj Dutta"
+}
+
+type IObjectRecordType = Record<"name", string>;
+
+const obj2: IObjectRecordType = {
+    name: 'Raj Dutta',
+    // age: 27 If we add this value so then typescript would throw an error because of Record.
+}
+
+interface Person {
+    name: string;
+    age: number;
+    occupation: string;
+}
+
+type PersonOmitType = Omit<Person, 'age' | 'occupation'>;
+
+const obj3: PersonOmitType = {
+    name: "Raj Dutta"
+}
+
+
+type PersonPickType = Pick<Person, "age" | "occupation">;
+
+const obj4: PersonPickType = {
+    age: 27,
+    occupation: "Web Developer"
+}
+
+type ThreeValueTypes = "name" | "age" | "occupation";
+
+type PersonExclude = Exclude<ThreeValueTypes, "age" | "occupation">; // Exclude only works with union type.
+
+const obj5: PersonExclude = "name";
+
+function calculate(obj: { x: number, y: number }) {
+    return obj.x + obj.y;
+}
+
+type ReturnedTypedFn = ReturnType<typeof calculate>;
+type ParametersTypedFn = Parameters<typeof calculate>;
+type ReadonlyTypedFn = Readonly<ParametersTypedFn>;
+
+const obj6: Readonly<ReadonlyTypedFn[0]> = {
+    x: 0,
+    y: 0
+}
+
+// obj6.x = 10; This can't be done because of Readonly.

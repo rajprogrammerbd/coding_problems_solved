@@ -130,3 +130,27 @@ Vertical scaling, also known as "scaling up" refers to scaling by providing addi
 **Horizontal Scalability - scaling out**
 
 Horizontal scaling, also known as “scaling out,” refers to increasing the number of machines in the network. We use commodity nodes for this purpose because of their attractive dollar-cost benefits. The catch here is that we need to build a system such that many nodes could collectively work as if we had a single, huge server.
+
+> **API Characteristics**
+
+1. Separation between API specification and it's implementation
+
+2. Concurrency
+
+3. Dynamic rate-limiting
+
+4. Security
+
+5. Error Warnings and handling
+
+6. Architectural styles of an API
+
+7. Minimal but comprehensive and cohesive
+
+8. Stateless or state-bearing
+
+9. User adoption
+
+10. Fault tolerance
+
+11. Performance measurement

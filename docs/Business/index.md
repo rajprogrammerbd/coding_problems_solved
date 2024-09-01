@@ -8,3 +8,5 @@
 Revenue in business refers to the total amount of money generated from the sale of goods or services before any expenses are deducted.
 
 * **What is CRM?** CRM stands for Customer Relationship Management. It's a strategy, practice, and technology that companies use to manage and analyze customer interaction and data throughout the customer life-cycle.
+
+* **What is lead generation?** Lead generation is the process of attracting and converting strangers and prospects into someone who has indicated interest in your company's product or service.

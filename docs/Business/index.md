@@ -14,3 +14,5 @@ Revenue in business refers to the total amount of money generated from the sale 
 * **What is SLI (Service Level Idicator)?** A measurement that indicates the performance of a specific aspect of a service.
 
 * **What is SLO (Service Level Objective)?** A target or goal for the level of service you want to achieve based on the SLI.
+
+* **What is SLA (Service Level Agreement)?** A formal agreement between a service provider and a customer that defines the expected service level (often includes specific SLOs) and what happens if those targets aren't met.

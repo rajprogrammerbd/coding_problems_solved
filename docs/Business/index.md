@@ -12,3 +12,5 @@ Revenue in business refers to the total amount of money generated from the sale 
 * **What is lead generation?** Lead generation is the process of attracting and converting strangers and prospects into someone who has indicated interest in your company's product or service.
 
 * **What is SLI (Service Level Idicator)?** A measurement that indicates the performance of a specific aspect of a service.
+
+* **What is SLO (Service Level Objective)?** A target or goal for the level of service you want to achieve based on the SLI.

@@ -2,6 +2,8 @@
 
 * **What is Monetizing?** Monetizing refers to the process of converting something into money or revenue.
 
+* **What is financial metric?** A financial metric is a quantitative measure used to assess the financial performance, health, and stability of a company.
+
 * **What is Return on Investment (ROI)?** Return on Investment (ROI) is a financial metric used to evaluate the efficiency or profitability of an investment.
 
 * **What is revenue?**

@@ -47,3 +47,13 @@ JOIN order_items oi
 ```
 
 > using the ***UNION*** clause, we can join two select statement in mysql but there is one condition, we need to get the same number of columns from both of the statements.
+
+* **Constraints in MySQL**
+
+1. NOT NULL
+2. UNIQUE
+3. PRIMARY KEY
+4. FOREIGN KEY
+5. CHECK
+6. DEFAULT
+7. CREATE INDEX

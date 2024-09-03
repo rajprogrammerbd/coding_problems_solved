@@ -104,6 +104,8 @@ MTTR = Total Maintenance Time / Total Number of Repairs
 
 (We strive for a higher MTBF value and a lower MTTR value.)
 
+* **What is the difference Between Reliability and Availability?** Reliability aims to minimize system failures and downtime, while availability aims to maximize operational time.
+
 * **What is scalability?** Scalability is the ability of a system to handle an increasing amount of workload without compromising performance.
 
 The workload can be of different types, including the following:

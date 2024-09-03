@@ -1,6 +1,6 @@
 # **Understanding Business**
 
-* **What is Monetizing?** Monetizing refers to the process of converting something inyo money or revenue.
+* **What is Monetizing?** Monetizing refers to the process of converting something into money or revenue.
 
 * **What is Return on Investment (ROI)?** Return on Investment (ROI) is a financial metric used to evaluate the efficiency or profitability of an investment.
 

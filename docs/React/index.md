@@ -89,3 +89,5 @@ Stateless components notifies them about the requirements of the state changes, 
 * **What is a wrapper component?** A wrapper in React is a component that wraps or surrounds another component or group of components. It can be used for a variety of purposes such as adding additional functionality, styling, or layout to the wrapped components.
 
 * **What is state mutation?** State mutation happens when you try to update the state of a component without actually using setState function.
+
+* **What is React.StrictMode? and why we should use it?** React.StrictMode is a wrapper component in React that helps identify potential issues in an application, It doesn't render any UI but activates additional checks and warning for it's children components in development mode. It has no effect on production builds. It checks, Detecting Unsafe Lifecycles, Identifying Side Effects, Highlighting Potential Memory Leaks, Ensure future campactibility.

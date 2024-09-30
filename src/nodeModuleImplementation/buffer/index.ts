@@ -1,14 +1,43 @@
 console.clear();
+import { Buffer } from "node:buffer";
 
-const buff1 = Buffer.alloc(9);
+// Create Buffer data from a string.
+const buff1 = Buffer.from('Hello World!');
 
-buff1.write('Raj Dutta', 'utf-8');
+console.log('buff1 ', buff1);
 
-const myFullName = Buffer.from("Raj Dutta");
+// Alloc a buffer with specified size filled with zeros.
+const buff2 = Buffer.alloc(12);
 
-console.log(buff1.toString());
-console.log(myFullName.length);
+buff2[0] = 0x48;
+buff2[1] = 0x65;
+buff2[2] = 0x6c;
+buff2[3] = 0x6c;
+buff2[4] = 0x6f;
+buff2[5] = 0x20;
+buff2[6] = 0x57;
+buff2[7] = 0x6f;
+buff2[8] = 0x72;
+buff2[9] = 0x6c;
+buff2[10] = 0x64;
+buff2[11] = 0x21;
 
-for (const val of myFullName.entries()) {
-    console.log(String.fromCharCode(val[1]));
-}
+// Result will be same as 'buff1'
+console.log('buff2', buff2.toString());
+
+const buff3 = Buffer.alloc(50);
+buff3.write('Hello', 3);
+console.log(buff3);
+
+// Check if the two buffers contains the same type of data or not and return boolean value
+console.log('equal -> ', buff1.equals(buff2));
+
+// Used to copy
+const buff4 = Buffer.from('Hello');
+const buff5 = Buffer.allocUnsafe(4);
+buff4.copy(buff5);
+console.log('buff5', buff5, buff5.toString('utf-8'))
+
+// concat
+const buff6 = Buffer.concat([buff4, buff5]);
+console.log('buff6', buff6.toString());

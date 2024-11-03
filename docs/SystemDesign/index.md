@@ -164,3 +164,5 @@ Horizontal scaling, also known as “scaling out,” refers to increasing the nu
 * **What is Queuing delay** Queuing delay is the time needed for a node to hold the packet before it can proceed. The packet is kept in a queue until its turn comes up. At times, the internet is called the “network of queues” because a network packet needs to relay through many network routers to reach the final destination.
 
 * **What is Throughput?** Throughput is the amount of data that can be sent from one place to another in a given amount of time.
+
+* **What is a Socket?** A socket is an interface that creates a two-way channel between processes communicating on different devices. The interface (IP address + port) is referred to as a socket address.

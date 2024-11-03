@@ -160,3 +160,5 @@ Horizontal scaling, also known as “scaling out,” refers to increasing the nu
 * **What is Transmission delay** The time it takes to place a packet on the transmission link is the transmission delay.
 
 * **What is Propagation delay** Propagation delay is the time a bit takes to go from start-host to end-host.
+
+* **What is Queuing delay** Queuing delay is the time needed for a node to hold the packet before it can proceed. The packet is kept in a queue until its turn comes up. At times, the internet is called the “network of queues” because a network packet needs to relay through many network routers to reach the final destination.

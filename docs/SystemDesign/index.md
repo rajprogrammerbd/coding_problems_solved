@@ -154,3 +154,5 @@ Horizontal scaling, also known as “scaling out,” refers to increasing the nu
 10. Fault tolerance
 
 11. Performance measurement
+
+* **What is transmission link and transmission media?** Simply put, transmission media is the physical substance that carries the data, and the transmission link is the specific route the data takes.

@@ -158,3 +158,5 @@ Horizontal scaling, also known as “scaling out,” refers to increasing the nu
 * **What is transmission link and transmission media?** Simply put, transmission media is the physical substance that carries the data, and the transmission link is the specific route the data takes.
 
 * **What is Transmission delay** The time it takes to place a packet on the transmission link is the transmission delay.
+
+* **What is Propagation delay** Propagation delay is the time a bit takes to go from start-host to end-host.
